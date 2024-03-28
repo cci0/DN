@@ -2,26 +2,38 @@
 
 $basic-color: #bdd2b6;
 
+// 모바일 헤더
 .header {
-    background-color: $basic-color;
-
     .mb-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: $basic-color;
 
         .mb-oddLogo {
-            width: 24px;
+            width: 30px;
             margin: 20px;
         }
+
         .mb-hamburger-menu {
             margin: 20px;
         }
     }
+    // 모바일 사이드 바
     .mb-sidebar {
-        margin: 20px;
+        position: absolute;
+        right: 0;
+        width: 35%;
+        height: 100%;
+        padding: 20px;
+        background-color: rgba($basic-color, 25%);
+
         li {
-            margin: 15px 0;
+            padding-bottom: 15px;
+
+            span {
+                margin: 0 10px;
+            }
         }
     }
 }

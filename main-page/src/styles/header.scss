@@ -1,0 +1,27 @@
+@import './reset.css';
+
+$basic-color: #bdd2b6;
+
+.header {
+    background-color: $basic-color;
+
+    .mb-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .mb-oddLogo {
+            width: 24px;
+            margin: 20px;
+        }
+        .mb-hamburger-menu {
+            margin: 20px;
+        }
+    }
+    .mb-sidebar {
+        margin: 20px;
+        li {
+            margin: 15px 0;
+        }
+    }
+}

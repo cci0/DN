@@ -4,6 +4,8 @@ import Header from './components/Header';
 import NotFound from './pages/NotFound';
 import MainPage from './pages/MainPage';
 import Login from './pages/Login';
+import SearchId from './pages/SearchId';
+import SearchPw from './pages/SearchPw';
 import SignUp from './pages/SignUp';
 import Calendar from './pages/Calendar';
 import TodoList from './pages/TodoList';
@@ -17,6 +19,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MainPage />} />
                     <Route path="/Login" element={<Login />} />
+                    <Route path="/SearchId" element={<SearchId />} />
+                    <Route path="/SearchPw" element={<SearchPw />} />
                     <Route path="/Signup" element={<SignUp />} />
                     <Route path="/Calender" element={<Calendar />} />
                     <Route path="/TodoList" element={<TodoList />} />

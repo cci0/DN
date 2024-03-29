@@ -1,0 +1,55 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+.mb-input-user {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    .user-id {
+        margin: 15px 20px 0 20px;
+        border: 2px solid $icon-color;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .user-name {
+        margin: 15px 20px 0 20px;
+        border: 2px solid $icon-color;
+        border-radius: 5px;
+        padding: 8px;
+    }
+
+    .user-email {
+        display: flex;
+        align-items: center;
+        margin: 20px;
+
+        .email-front {
+            border: 2px solid $icon-color;
+            border-radius: 5px;
+            padding: 8px;
+            width: 80%;
+        }
+
+        span {
+            margin: 0 15px;
+        }
+
+        .domain-text {
+            border: 2px solid $icon-color;
+            border-radius: 5px;
+            padding: 8px;
+            margin-right: 10px;
+            width: 100%;
+        }
+
+        select.domain-list {
+            border: 2px solid $icon-color;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+        }
+    }
+}

@@ -1,7 +1,7 @@
 @import './reset.css';
 
 $basic-color: #bdd2b6;
-
+$light-color: #e2ebdf;
 // 모바일 헤더
 .header {
     .mb-header {
@@ -23,10 +23,10 @@ $basic-color: #bdd2b6;
     .mb-sidebar {
         position: absolute;
         right: 0;
-        width: 35%;
-        height: 100%;
+        width: 45%;
+        height: -webkit-fill-available;
         padding: 20px;
-        background-color: rgba($basic-color, 25%);
+        background-color: rgba($light-color, 90%);
 
         li {
             padding-bottom: 15px;

@@ -1,0 +1,67 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+form {
+    margin: 30px 20px;
+
+    .mb-login-title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: $icon-color;
+        margin: 20px auto;
+    }
+    .mb-input-user {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: column;
+
+        .user-id {
+            margin: 15px 20px 0 20px;
+            border: 2px solid $icon-color;
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        .user-pw {
+            margin: 15px 20px;
+            border: 2px solid $icon-color;
+            border-radius: 5px;
+            padding: 8px;
+        }
+    }
+
+    .non-user {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px 20px 20px;
+
+        .search {
+            margin: 0 20px;
+            span {
+                font-size: 10px;
+                margin-right: 5px;
+            }
+        }
+        .signUp {
+            margin: 0 20px;
+
+            font-size: 10px;
+        }
+    }
+
+    .login-btn {
+        margin: 15px 40px;
+        width: -webkit-fill-available;
+        padding: 5px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        background-color: $basic-color;
+
+        span {
+            color: $white-color;
+            font-weight: bold;
+        }
+    }
+}

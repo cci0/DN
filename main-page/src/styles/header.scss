@@ -2,6 +2,9 @@
 
 $basic-color: #bdd2b6;
 $light-color: #e2ebdf;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
 // 모바일 헤더
 .header {
     .mb-header {
@@ -17,6 +20,20 @@ $light-color: #e2ebdf;
 
         .mb-hamburger-menu {
             margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+
+            .line {
+                width: 24px;
+                border: 1px solid $icon-color;
+                border-radius: 2px;
+            }
+
+            .line2 {
+                margin: 5px 0;
+            }
         }
     }
     // 모바일 사이드 바

@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import Login from './pages/Login';
 import SearchId from './pages/SearchId';
 import SearchPw from './pages/SearchPw';
+import ChangePw from './pages/ChangePw';
 import SignUp from './pages/SignUp';
 import Calendar from './pages/Calendar';
 import TodoList from './pages/TodoList';
@@ -21,8 +22,9 @@ function App() {
                     <Route path="/Login" element={<Login />} />
                     <Route path="/SearchId" element={<SearchId />} />
                     <Route path="/SearchPw" element={<SearchPw />} />
+                    <Route path="/ChangePw" element={<ChangePw />} />
                     <Route path="/Signup" element={<SignUp />} />
-                    <Route path="/Calender" element={<Calendar />} />
+                    <Route path="/Calendar" element={<Calendar />} />
                     <Route path="/TodoList" element={<TodoList />} />
                     <Route path="/MyDiary" element={<Diary />} />
                     <Route path="*" element={<NotFound />} />

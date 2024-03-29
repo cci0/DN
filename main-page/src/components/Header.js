@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoPng from '../images/Logo2.png';
-import menuSvg from '../icons/menu.svg';
-import login from '../icons/user-round.svg';
-import signup from '../icons/user-round-cog.svg';
-import calendar from '../icons/calendar-days.svg';
-import todo from '../icons/list-todo.svg';
-import diary from '../icons/book-heart.svg';
 
 import '../styles/header.scss';
 
 export default function Header() {
-    const [mbSidebar, setmbSidebar] = useState(false);
+    const [mbSidebar, setMbSidebar] = useState(false);
+
     const toggleMbSidebar = () => {
-        setmbSidebar(!mbSidebar);
+        setMbSidebar(!mbSidebar);
+    };
+
+    const closeMbSidebar = () => {
+        setMbSidebar(false); // 모바일 사이드바를 닫음
     };
 
     return (
@@ -23,44 +22,46 @@ export default function Header() {
                 {/* 모바일 버전 */}
                 <div className="mb-header">
                     <Link to={'/'}>
-                        <img className="mb-oddLogo" src={logoPng} alt="Loge" />
+                        <img className="mb-oddLogo" src={logoPng} alt="Logo" />
                     </Link>
 
                     <div className="mb-hamburger-menu" onClick={toggleMbSidebar}>
-                        <img src={menuSvg} alt="menu" />
+                        <span className="line line1"></span>
+                        <span className="line line2"></span>
+                        <span className="line line3"></span>
                     </div>
                 </div>
                 {/* 모바일 사이드 바 */}
                 {mbSidebar && (
                     <div className="mb-sidebar">
                         <ul className="mb-sidebar-menu">
-                            <li>
+                            <li onClick={closeMbSidebar}>
                                 <Link to={'/Login'}>
-                                    <img src={login} alt="Login" />
+                                    <img src={process.env.PUBLIC_URL + '/icons/user-round.svg'} alt="Login" />
                                     <span>로그인</span>
                                 </Link>
                             </li>
-                            <li>
+                            <li onClick={closeMbSidebar}>
                                 <Link to={'/Signup'}>
-                                    <img src={signup} alt="SignUp" />
+                                    <img src={process.env.PUBLIC_URL + '/icons/user-round-cog.svg'} alt="SignUp" />
                                     <span>회원가입</span>
                                 </Link>
                             </li>
-                            <li>
-                                <Link to={'/Calender'}>
-                                    <img src={calendar} alt="Calendar" />
+                            <li onClick={closeMbSidebar}>
+                                <Link to={'/Calendar'}>
+                                    <img src={process.env.PUBLIC_URL + '/icons/calendar-days.svg'} alt="Calendar" />
                                     <span>캘린더</span>
                                 </Link>
                             </li>
-                            <li>
+                            <li onClick={closeMbSidebar}>
                                 <Link to={'/TodoList'}>
-                                    <img src={todo} alt="TodoList" />
+                                    <img src={process.env.PUBLIC_URL + '/icons/list-todo.svg'} alt="TodoList" />
                                     <span>Todo List</span>
                                 </Link>
                             </li>
-                            <li>
+                            <li onClick={closeMbSidebar}>
                                 <Link to={'/MyDiary'}>
-                                    <img src={diary} alt="Diary" />
+                                    <img src={process.env.PUBLIC_URL + '/icons/book-heart.svg'} alt="Diary" />
                                     <span>나의 일기장</span>
                                 </Link>
                             </li>

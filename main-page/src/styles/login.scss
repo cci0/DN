@@ -2,7 +2,7 @@ $basic-color: #bdd2b6;
 $icon-color: #798777;
 $white-color: #fdfdfd;
 
-form {
+.login {
     margin: 30px 20px;
 
     .mb-login-title {
@@ -11,25 +11,6 @@ form {
         text-align: center;
         color: $icon-color;
         margin: 20px auto;
-    }
-    .mb-input-user {
-        margin: 0 20px;
-        display: flex;
-        flex-direction: column;
-
-        .user-id {
-            margin: 15px 20px 0 20px;
-            border: 2px solid $icon-color;
-            border-radius: 5px;
-            padding: 8px;
-        }
-
-        .user-pw {
-            margin: 15px 20px;
-            border: 2px solid $icon-color;
-            border-radius: 5px;
-            padding: 8px;
-        }
     }
 
     .non-user {

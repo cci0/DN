@@ -1,6 +1,4 @@
-$basic-color: #bdd2b6;
 $icon-color: #798777;
-$white-color: #fdfdfd;
 
 .mb-input-user {
     margin: 0 20px;
@@ -14,42 +12,10 @@ $white-color: #fdfdfd;
         padding: 5px;
     }
 
-    .user-name {
-        margin: 15px 20px 0 20px;
+    .user-pw {
+        margin: 15px 20px;
         border: 2px solid $icon-color;
         border-radius: 5px;
         padding: 5px;
-    }
-
-    .user-email {
-        display: flex;
-        align-items: center;
-        margin: 20px;
-
-        .email-front {
-            border: 2px solid $icon-color;
-            border-radius: 5px;
-            padding: 5px;
-            width: 80%;
-        }
-
-        span {
-            margin: 0 15px;
-        }
-
-        .domain-text {
-            border: 2px solid $icon-color;
-            border-radius: 5px;
-            padding: 5px;
-            margin-right: 10px;
-            width: 100%;
-        }
-
-        select.domain-list {
-            border: 2px solid $icon-color;
-            border-radius: 5px;
-            padding: 5px;
-            width: 100%;
-        }
     }
 }

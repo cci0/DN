@@ -2,14 +2,19 @@ $basic-color: #bdd2b6;
 $icon-color: #798777;
 $white-color: #fdfdfd;
 
-form {
-    margin: 30px 20px;
+.serch-id {
+    margin: 30px 20px 0 20px;
 
     .mb-Search-title {
         font-weight: bold;
         text-align: center;
         margin: 20px auto;
 
+        .mb-input-user {
+            margin: 0 20px;
+            display: flex;
+            flex-direction: column;
+        }
         span {
             font-size: 16px;
             margin-right: 10px;
@@ -17,12 +22,6 @@ form {
         .mb-search-id {
             color: $icon-color;
         }
-    }
-
-    .mb-input-user {
-        margin: 0 20px;
-        display: flex;
-        flex-direction: column;
     }
 
     .searchId-btn {
@@ -38,4 +37,10 @@ form {
             font-weight: bold;
         }
     }
+}
+
+.back-login {
+    font-size: 10px;
+    margin: 0 60px;
+    text-align: end;
 }

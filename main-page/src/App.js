@@ -11,6 +11,8 @@ import SignUp from './pages/SignUp';
 import Calendar from './pages/Calendar';
 import TodoList from './pages/TodoList';
 import Diary from './pages/Diary';
+import FindId from './pages/FindId';
+import Mypage from './pages/Mypage';
 
 function App() {
     return (
@@ -18,15 +20,24 @@ function App() {
             <BrowserRouter>
                 <Header />
                 <Routes>
+                    {/* 메인 */}
                     <Route path="/" element={<MainPage />} />
+                    {/* 로그인 및 회원가입 관련 */}
                     <Route path="/Login" element={<Login />} />
                     <Route path="/SearchId" element={<SearchId />} />
+                    <Route path="/FindId" element={<FindId />} />
                     <Route path="/SearchPw" element={<SearchPw />} />
                     <Route path="/ChangePw" element={<ChangePw />} />
                     <Route path="/Signup" element={<SignUp />} />
+                    {/* 캘린더 */}
                     <Route path="/Calendar" element={<Calendar />} />
+                    {/* 투두 리스트 */}
                     <Route path="/TodoList" element={<TodoList />} />
+                    {/* 일기장 페이지 */}
                     <Route path="/MyDiary" element={<Diary />} />
+                    {/* 마이페이지 관련 */}
+                    <Route path="/MyPage" element={<Mypage />} />
+
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </BrowserRouter>

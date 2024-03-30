@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-import InputUserId from '../components/InputUserId';
+import InputUserPw from '../components/InputUserId';
+
+import '../styles/searchPw.scss';
 
 export default function SearchPw() {
     const [userId, setUserId] = useState('');
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -26,14 +29,27 @@ export default function SearchPw() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className="search-pw" onSubmit={handleSubmit}>
+                <div className="mb-Search-title">
+                    <Link to={'/SearchId'}>
+                        <span>아이디 찾기</span>
+                    </Link>
+                    <span>|</span>
+                    <Link to={'/SearchPw'}>
+                        <span className="mb-search-pw">비밀번호 찾기</span>
+                    </Link>
+                </div>
+
                 {/* 이름 및 이메일 input */}
-                <InputUserId setUserId={setUserId} setUserName={setUserName} setEmail={setEmail} />
+                <InputUserPw setUserId={setUserId} setUserName={setUserName} setEmail={setEmail} />
 
                 <button className="searchId-btn" type="submit">
                     <span>비밀번호 찾기</span>
                 </button>
             </form>
+            <div className="back-login" onClick={() => navigate('/Login')}>
+                로그인 하기
+            </div>
         </div>
     );
 }

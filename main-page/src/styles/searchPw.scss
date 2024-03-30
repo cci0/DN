@@ -2,8 +2,8 @@ $basic-color: #bdd2b6;
 $icon-color: #798777;
 $white-color: #fdfdfd;
 
-form {
-    margin: 30px 20px;
+.search-pw {
+    margin: 30px 20px 0 20px;
 
     .mb-Search-title {
         font-weight: bold;
@@ -32,4 +32,10 @@ form {
             font-weight: bold;
         }
     }
+}
+
+.back-login {
+    font-size: 10px;
+    margin: 0 60px;
+    text-align: end;
 }

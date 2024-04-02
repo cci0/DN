@@ -8,7 +8,7 @@ import SearchId from './pages/SearchId';
 import SearchPw from './pages/SearchPw';
 import ChangePw from './pages/ChangePw';
 import SignUp from './pages/SignUp';
-import Calendar from './pages/Calendar';
+import Calendar1 from './pages/Calendar1';
 import TodoList from './pages/TodoList';
 import Diary from './pages/Diary';
 import FindId from './pages/FindId';
@@ -30,7 +30,7 @@ function App() {
                     <Route path="/ChangePw" element={<ChangePw />} />
                     <Route path="/Signup" element={<SignUp />} />
                     {/* 캘린더 */}
-                    <Route path="/Calendar" element={<Calendar />} />
+                    <Route path="/Calendar" element={<Calendar1 />} />
                     {/* 투두 리스트 */}
                     <Route path="/TodoList" element={<TodoList />} />
                     {/* 일기장 페이지 */}

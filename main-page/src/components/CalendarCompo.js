@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
-import Calendar from '../pages/Calendar';
+import Calendar from 'react-calendar';
+import moment from 'moment';
+
+import 'react-calendar/dist/Calendar.css'; // css import
+import '../styles/calendarCompo.scss';
 
 export default function CalendarCompo() {
     const [value, onChange] = useState(new Date());
 
     return (
-        <Wrap>
-            <Calendar onChange={onChange} value={value} />
-        </Wrap>
+        <div>
+            <Calendar
+                onChange={onChange}
+                value={value}
+                prev2Label={null}
+                next2Label={null}
+                locale="ko"
+                formatDay={(locale, date) => moment(date).format('D')}
+                calendarType="gregory"
+            />
+        </div>
     );
 }

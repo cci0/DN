@@ -13,6 +13,7 @@ import TodoList from './pages/TodoList';
 import Diary from './pages/Diary';
 import FindId from './pages/FindId';
 import Mypage from './pages/Mypage';
+import MenuBar from './components/MenuBar';
 
 function App() {
     return (
@@ -40,6 +41,7 @@ function App() {
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>
+                <MenuBar />
             </BrowserRouter>
         </div>
     );

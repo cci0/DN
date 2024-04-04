@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import moment from 'moment';
 
-import 'react-calendar/dist/Calendar.css'; // css import
+// css import
+import 'react-calendar/dist/Calendar.css';
 import '../styles/calendarCompo.scss';
 
 export default function CalendarCompo() {

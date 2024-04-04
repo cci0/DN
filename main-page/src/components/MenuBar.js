@@ -19,7 +19,9 @@ export default function MenuBar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/'}>홈</Link>
+                        <Link to={'/'}>
+                            <img src={process.env.PUBLIC_URL + '/icons/home.svg'} alt="home" />
+                        </Link>
                     </li>
                     <li>
                         <Link to={'/MyDiary'}>

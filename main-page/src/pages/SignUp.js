@@ -1,20 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../styles/signUp.scss';
 
 export default function SignUp() {
     const [userData, setUserData] = useState({
+        userId: '',
         pw: '',
         pwCheck: '',
+        name: '',
+        nickname: '',
+        email: '',
+        domain: '',
     });
 
-    const [selectedDomain, setSelectedDomain] = useState('');
-    const [customDomain, setCustomDomain] = useState('');
+    // const [selectedDomain, setSelectedDomain] = useState('');
+    // const [customDomain, setCustomDomain] = useState('');
 
-    const { pw, pwCheck } = userData;
+    // const { userId, pw, pwCheck, name, nickname, email, domain } = userData;
+
+    // 로컬 스토리지에 저장하기
+    useEffect(() => {
+        const storedUserDate = localStorage.getItem('userDatas');
+        if (storedUserDate) {
+            setUserData(JSON.parse(storedUserDate));
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.getItem('userDatas', JSON.stringify(userData));
+    }, [userData]);
 
     // 비밀번호와 비밀번호 확인이 같은지 확인하는 함수
-    const checkPw = pw === pwCheck;
+    const checkPw = userData.pw === userData.pwCheck;
 
     // 비밀번호 입력 시 상태 업데이트
     const handlePwChange = (e) => {
@@ -35,10 +52,10 @@ export default function SignUp() {
     const handleDomainChange = (e) => {
         const { value } = e.target;
         if (value !== 'type') {
-            setSelectedDomain(value);
-            setCustomDomain('');
+            // setSelectedDomain(value);
+            // setCustomDomain('');
         } else {
-            setSelectedDomain('');
+            // setSelectedDomain('');
         }
     };
 
@@ -53,7 +70,7 @@ export default function SignUp() {
                             type="password"
                             name="pw"
                             className="input-pw"
-                            value={pw}
+                            value={userData.pw}
                             onChange={handlePwChange}
                             placeholder="비밀번호를 입력해 주세요."
                         />
@@ -61,11 +78,13 @@ export default function SignUp() {
                             type="password"
                             name="pwCheck"
                             className="input-pw"
-                            value={pwCheck}
+                            value={userData.pwCheck}
                             onChange={handlePwCheckChange}
                             placeholder="비밀번호를 한번 더 입력해 주세요."
                         />
-                        {!checkPw && pwCheck !== '' && <p className="error-pw">&#42; 비밀번호가 일치하지 않습니다.</p>}
+                        {!checkPw && userData.pwCheck !== '' && (
+                            <p className="error-pw">&#42; 비밀번호가 일치하지 않습니다.</p>
+                        )}
                     </div>
 
                     <input type="text" className="user-name" placeholder="이름" />

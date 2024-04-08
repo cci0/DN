@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import ShowPostModal from '../components/ShowPostModal';
 
-export default function Diary() {
+export default function ShowPostModal() {
     const [posts, setPosts] = useState([]);
     const [selectedPostIndex, setSelectedPostIndex] = useState(null); // 선택된 포스트 인덱스 상태 추가
 
@@ -17,8 +16,11 @@ export default function Diary() {
         const year = date.getFullYear();
         const month = ('0' + (date.getMonth() + 1)).slice(-2);
         const day = ('0' + date.getDate()).slice(-2);
+        const hour = ('0' + (date.getHours() % 12 || 12)).slice(-2);
+        const minute = ('0' + date.getMinutes()).slice(-2);
+        const meridiem = date.getHours() >= 12 ? '오후' : '오전';
 
-        return `${year}-${month}-${day}`;
+        return `${year}년 ${month}월 ${day}일 ${meridiem} ${hour}:${minute}`;
     };
 
     const openModal = (index) => {

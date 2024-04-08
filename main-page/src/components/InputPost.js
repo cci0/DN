@@ -1,37 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { addPost } from '../redux/PostSlice';
+import '../styles/inputPost.scss';
 
-export default function InputPost() {
+export default function InputPost({ posts }) {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [selectedMood, setSelectedMood] = useState('');
 
     const onSubmit = (data) => {
         const newPost = {
             id: Date.now(),
             title: data.title,
+            mood: selectedMood,
             content: data.content,
         };
 
         dispatch(addPost(newPost));
+
+        const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+        const updatePosts = [...savedPosts, newPost];
+        localStorage.setItem('posts', JSON.stringify(updatePosts));
+
         navigate('/MyDiary');
     };
 
+    const handleMoodSelect = (mood) => {
+        setSelectedMood(mood);
+    };
+
+    const handleCancel = () => {
+        navigate(-1);
+    };
+
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label htmlFor="title">제목</label>
-                <input type="text" id="title" {...register('title', { required: '필수로 입혁해주세요' })} />
+        <form className="mb-input-post" onSubmit={handleSubmit(onSubmit)}>
+            <div className="input-post-title">
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="제목"
+                    {...register('title', { required: '필수로 입력해주세요' })}
+                />
             </div>
-            <div>
-                <label htmlFor="content">내용</label>
-                <textarea id="content" cols="30" rows="10" {...register('content')}></textarea>
+            <div className="mood">
+                <img
+                    className={`input-mood-smile${selectedMood === 'smile' ? ' focused' : ''}`}
+                    src={process.env.PUBLIC_URL + '/icons/smile.svg'}
+                    alt="Smile"
+                    onClick={() => handleMoodSelect('smile')}
+                    onFocus={() => setSelectedMood('smile')}
+                    onBlur={() => {
+                        if (selectedMood !== 'smile') {
+                            setSelectedMood('');
+                        }
+                    }}
+                />
+                <img
+                    className="input-mood-meh"
+                    src={process.env.PUBLIC_URL + '/icons/meh.svg'}
+                    alt="Meh"
+                    onClick={() => handleMoodSelect('meh')}
+                    onFocus={() => setSelectedMood('meh')}
+                    onBlur={() => {
+                        if (selectedMood !== 'meh') {
+                            setSelectedMood('');
+                        }
+                    }}
+                />
+                <img
+                    className="input-mood-frown"
+                    src={process.env.PUBLIC_URL + '/icons/frown.svg'}
+                    alt="Frown"
+                    onClick={() => handleMoodSelect('frown')}
+                    onFocus={() => setSelectedMood('frown')}
+                    onBlur={() => {
+                        if (selectedMood !== 'frown') {
+                            setSelectedMood('');
+                        }
+                    }}
+                />
             </div>
-            <button>저장</button>
+            <div className="input-post-content">
+                <textarea
+                    id="content"
+                    cols="30"
+                    rows="10"
+                    placeholder="내용을 적어주세요."
+                    {...register('content')}
+                ></textarea>
+            </div>
+            <div className="post-input-btn">
+                <button className="post-delete-btn" type="button" onClick={handleCancel}>
+                    취소
+                </button>
+                <button className="post-save-btn" type="submit">
+                    저장
+                </button>
+            </div>
         </form>
     );
 }

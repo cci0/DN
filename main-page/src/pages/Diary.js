@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ShowPostModal from '../components/ShowPostModal';
+
+import '../styles/diary.scss';
 
 export default function Diary() {
     const [posts, setPosts] = useState([]);
-    const [selectedPostIndex, setSelectedPostIndex] = useState(null); // 선택된 포스트 인덱스 상태 추가
 
     useEffect(() => {
         // 로컬 스토리지에서 데이터 불러오기
@@ -21,45 +21,63 @@ export default function Diary() {
         return `${year}-${month}-${day}`;
     };
 
-    const openModal = (index) => {
-        setSelectedPostIndex(index); // 선택된 포스트 인덱스 설정
-    };
+    const [expandPost, setExpandPost] = useState(null);
 
-    const closeModal = () => {
-        setSelectedPostIndex(null); // 선택된 포스트 인덱스 초기화
+    const toggleExpand = (postId) => {
+        if (expandPost === postId) {
+            setExpandPost(null);
+        } else {
+            setExpandPost(postId);
+        }
     };
-
-    const modalRef = useRef();
 
     console.log(posts);
 
     return (
-        <div>
-            <div></div>
-            <div>
-                <Link to="/CreateDiary">작성</Link>
+        <div className="mb-diary">
+            <div className="create-diary-btn">
+                <Link to="/CreateDiary">
+                    <img
+                        className="create-icon"
+                        src={process.env.PUBLIC_URL + '/icons/square-pen.svg'}
+                        alt="square-pen"
+                    />
+                </Link>
             </div>
-            <ul>
+            <ul className="todo-listUp">
                 {posts.map((post, index) => (
-                    <li key={post.id}>
-                        <div
-                            onClick={() => {
-                                openModal(index); // 클릭 시 모달 열기 및 선택된 포스트 인덱스 설정
-                            }}
-                        >
-                            {post.title} <span>{timeData(post.id)}</span>
-                        </div>
-                        <div>{post.content}</div>
+                    <li className="todo-list" key={post.id}>
+                        <span className="todo-mood">
+                            {post.mood === 'smile' && (
+                                <img
+                                    className="mood-icon"
+                                    src={process.env.PUBLIC_URL + '/icons/smile.svg'}
+                                    alt="smile"
+                                />
+                            )}
+                            {post.mood === 'meh' && (
+                                <img className="mood-icon" src={process.env.PUBLIC_URL + '/icons/meh.svg'} alt="meh" />
+                            )}
+                            {post.mood === 'frown' && (
+                                <img
+                                    className="mood-icon"
+                                    src={process.env.PUBLIC_URL + '/icons/frown.svg'}
+                                    alt="frown"
+                                />
+                            )}
+                        </span>
+                        <span className="todo-title">{post.title}</span>
+                        <span className="todo-time">{timeData(post.id)}</span>
                     </li>
                 ))}
             </ul>
-            {selectedPostIndex !== null && ( // 선택된 포스트 인덱스가 있을 때만 모달을 열도록 설정
-                <div onClick={closeModal}>
-                    <div ref={modalRef}>
-                        <ShowPostModal post={posts[selectedPostIndex]} />
-                    </div>
-                </div>
-            )}
+
+            <span className="todo-title" onClick={(post) => toggleExpand(post.id)}>
+                {post.title}
+            </span>
+            <span className="todo-time">{timeData(post.id)}</span>
+            {/* 토글된 상태에서만 내용 보이기 */}
+            {expandedPostId === post.id && <div className="post-text">{post.text}</div>}
         </div>
     );
 }

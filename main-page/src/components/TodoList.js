@@ -5,6 +5,26 @@ export default function TodoList() {
     const [todo, setTodo] = useState('');
     const [todos, setTodos] = useState([]);
 
+    useEffect(() => {
+        localStorage.setItem('todoList', JSON.stringify(todos));
+    }, [todos]); // todos가 변경될 때마다 실행
+
+    useEffect(() => {
+        const savedTodos = JSON.parse(localStorage.getItem('todoList')) || [];
+        if (savedTodos.length !== todos.length) {
+            setTodos(savedTodos);
+        }
+    }, []);
+
+    // 새로운 todo를 추가하는 함수
+    const addTodo = (newTodo) => {
+        if (todos.length < 10) {
+            setTodos((prevTodos) => [...prevTodos, newTodo]);
+        } else {
+            alert('등록된 리스트가 너무 많습니다.');
+        }
+    };
+
     const onChange = (event) => setTodo(event.target.value);
 
     const onSubmit = (event) => {
@@ -12,28 +32,22 @@ export default function TodoList() {
         if (todo === '') {
             return;
         }
-        if (todos.length < 10) {
-            setTodos((currentArray) => [
-                ...currentArray,
-                {
-                    id: Date.now(),
-                    text: todo,
-                    completed: false,
-                },
-            ]);
-        } else {
-            return alert('등록된 리스트가 너무 많습니다.');
-        }
+        const newTodo = {
+            id: Date.now(),
+            text: todo,
+            completed: false,
+        };
+        addTodo(newTodo);
         setTodo('');
     };
 
     const onDelete = (id) => {
-        setTodos(todos.filter((todoItem) => todoItem.id !== id));
+        setTodos((prevTodos) => prevTodos.filter((todoItem) => todoItem.id !== id));
     };
 
     const toggleCompleted = (id) => {
-        setTodos(
-            todos.map((todoItem) => {
+        setTodos((prevTodos) =>
+            prevTodos.map((todoItem) => {
                 if (todoItem.id === id) {
                     return { ...todoItem, completed: !todoItem.completed };
                 }
@@ -41,17 +55,6 @@ export default function TodoList() {
             })
         );
     };
-
-    useEffect(() => {
-        const data = localStorage.getItem('todoList');
-        if (data) {
-            setTodos(JSON.parse(data));
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('todoList', JSON.stringify(todos));
-    }, [todos]);
 
     return (
         <div className="mb-todoList">

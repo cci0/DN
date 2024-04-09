@@ -8,9 +8,10 @@ import '../styles/inputPost.scss';
 
 export default function InputPost({ posts }) {
     const { register, handleSubmit } = useForm();
+    const [selectedMood, setSelectedMood] = useState('');
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [selectedMood, setSelectedMood] = useState('');
 
     const onSubmit = (data) => {
         const newPost = {
@@ -48,42 +49,15 @@ export default function InputPost({ posts }) {
                 />
             </div>
             <div className="mood">
-                <img
-                    className={`input-mood-smile${selectedMood === 'smile' ? ' focused' : ''}`}
-                    src={process.env.PUBLIC_URL + '/icons/smile.svg'}
-                    alt="Smile"
-                    onClick={() => handleMoodSelect('smile')}
-                    onFocus={() => setSelectedMood('smile')}
-                    onBlur={() => {
-                        if (selectedMood !== 'smile') {
-                            setSelectedMood('');
-                        }
-                    }}
-                />
-                <img
-                    className="input-mood-meh"
-                    src={process.env.PUBLIC_URL + '/icons/meh.svg'}
-                    alt="Meh"
-                    onClick={() => handleMoodSelect('meh')}
-                    onFocus={() => setSelectedMood('meh')}
-                    onBlur={() => {
-                        if (selectedMood !== 'meh') {
-                            setSelectedMood('');
-                        }
-                    }}
-                />
-                <img
-                    className="input-mood-frown"
-                    src={process.env.PUBLIC_URL + '/icons/frown.svg'}
-                    alt="Frown"
-                    onClick={() => handleMoodSelect('frown')}
-                    onFocus={() => setSelectedMood('frown')}
-                    onBlur={() => {
-                        if (selectedMood !== 'frown') {
-                            setSelectedMood('');
-                        }
-                    }}
-                />
+                {['smile', 'meh', 'frown'].map((mood) => (
+                    <img
+                        key={mood}
+                        className={`input-mood-${mood}${selectedMood === mood ? ' focused' : ''}`}
+                        src={process.env.PUBLIC_URL + `/icons/${mood}.svg`}
+                        alt={mood}
+                        onClick={() => handleMoodSelect(mood)}
+                    />
+                ))}
             </div>
             <div className="input-post-content">
                 <textarea
@@ -94,6 +68,7 @@ export default function InputPost({ posts }) {
                     {...register('content')}
                 ></textarea>
             </div>
+
             <div className="post-input-btn">
                 <button className="post-delete-btn" type="button" onClick={handleCancel}>
                     취소

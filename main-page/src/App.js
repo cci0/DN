@@ -16,6 +16,7 @@ import Mypage from './pages/Mypage';
 import MenuBar from './components/MenuBar';
 import DetailMyPage from './pages/DetailMyPage';
 import InputPost from './components/InputPost';
+import ShowPost from './components/ShowPost';
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                     {/* 일기장 페이지 */}
                     <Route path="/MyDiary" element={<Diary />} />
                     <Route path="/CreateDiary" element={<InputPost />} />
+                    <Route path="/MyDiary/:id" element={<ShowPost />} />
 
                     {/* 마이페이지 관련 */}
                     <Route path="/MyPage" element={<Mypage />} />

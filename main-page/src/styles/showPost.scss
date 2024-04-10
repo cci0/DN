@@ -1,0 +1,22 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+$error-color: #d1180d;
+
+.mood {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+
+    .input-mood-smile.focused {
+        filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+    }
+
+    .input-mood-meh.focused {
+        filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+    }
+
+    .input-mood-frown.focused {
+        filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+    }
+}

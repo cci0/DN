@@ -1,5 +1,6 @@
 $basic-color: #bdd2b6;
 $icon-color: #798777;
+$bg-color: #f8ede3;
 $white-color: #fdfdfd;
 $error-color: #d1180d;
 
@@ -16,21 +17,21 @@ $error-color: #d1180d;
         }
     }
 
-    .todo-listUp {
+    .diary-listUp {
         border: 1px solid $icon-color;
         border-radius: 5px;
         padding: 15px;
         height: 300px;
         overflow-y: auto;
 
-        .todo-list {
+        .diary-list {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 1px dashed $icon-color;
 
-            .todo-mood {
+            .diary-mood {
                 display: flex;
                 align-items: center;
                 margin-right: 10px;
@@ -39,27 +40,35 @@ $error-color: #d1180d;
                     width: 16px;
                 }
             }
-            .todo-title {
+            .diary-title {
                 width: 100%;
             }
-            .todo-time {
+            .diary-time {
                 width: 60px;
                 font-size: 10px;
                 text-align: end;
             }
         }
     }
-    .todo-listUp::-webkit-scrollbar {
+    .diary-listUp::-webkit-scrollbar {
         width: 10px;
     }
-    .todo-listUp::-webkit-scrollbar-thumb {
+    .diary-listUp::-webkit-scrollbar-thumb {
         background-color: $icon-color;
         border-radius: 10px;
         background-clip: padding-box;
         border: 2px solid transparent;
     }
-    .todo-listUp::-webkit-scrollbar-track {
+    .diary-listUp::-webkit-scrollbar-track {
         background-color: $basic-color;
         border-radius: 10px;
     }
+}
+
+.post-details {
+    margin: 30px 20px;
+    height: 300px;
+    background-color: $bg-color;
+    border: 1px solid $bg-color;
+    border-radius: 5px;
 }

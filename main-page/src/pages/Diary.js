@@ -7,6 +7,8 @@ import TodayPost from '../components/TodayPost';
 
 export default function Diary() {
     const [posts, setPosts] = useState([]);
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
 
     useEffect(() => {
         const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -22,6 +24,33 @@ export default function Diary() {
         return `${year}-${month}-${day}`;
     };
 
+    const filterMonth = (posts, year, month) => {
+        return posts.filter((post) => {
+            const postDate = new Date(post.id);
+            return postDate.getFullYear() === year && postDate.getMonth() + 1 === month;
+        });
+    };
+
+    const filteredPosts = filterMonth(posts, currentYear, currentMonth);
+
+    const previousMonth = () => {
+        if (currentMonth === 1) {
+            setCurrentMonth(12);
+            setCurrentYear(currentYear - 1);
+        } else {
+            setCurrentMonth(currentMonth - 1);
+        }
+    };
+
+    const nextMonth = () => {
+        if (currentMonth === 12) {
+            setCurrentMonth(1);
+            setCurrentYear(currentYear + 1);
+        } else {
+            setCurrentMonth(currentMonth + 1);
+        }
+    };
+
     return (
         <div>
             <div className="mb-diary">
@@ -34,8 +63,19 @@ export default function Diary() {
                         />
                     </Link>
                 </div>
+                <div className="month-navigation">
+                    <button className="previous-btn" onClick={previousMonth}>
+                        &lt;
+                    </button>
+                    <span className="this-month">
+                        {currentYear}년 {('0' + currentMonth).slice(-2)}월
+                    </span>
+                    <button className="next-month" onClick={nextMonth}>
+                        &gt;
+                    </button>
+                </div>
                 <ul className="diary-listUp">
-                    {posts.map((post, index) => (
+                    {filteredPosts.map((post, index) => (
                         <li key={post.id}>
                             <Link className="diary-list" to={`/MyDiary/${post.id}`}>
                                 <span className="diary-mood">

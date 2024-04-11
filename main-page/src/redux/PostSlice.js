@@ -9,7 +9,9 @@ const postSlice = createSlice({
     initialState: initialState,
     reducers: {
         addPost: (state, action) => {
-            state.postList.push(action.payload);
+            const post = action.payload;
+            post.date = new Date(post.date).toISOString();
+            state.postList.push(post);
         },
     },
 });

@@ -36,6 +36,13 @@ $error-color: #d1180d;
         .input-mood-frown.focused {
             filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
         }
+
+        #moodText {
+            border: 1px solid $icon-color;
+            border-radius: 5px;
+            padding: 0px 6px;
+            font-size: 12px;
+        }
     }
 
     .input-post-content {

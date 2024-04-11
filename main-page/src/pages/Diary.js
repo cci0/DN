@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import '../styles/diary.scss';
 
+import TodayPost from '../components/TodayPost';
+
 export default function Diary() {
     const [posts, setPosts] = useState([]);
 
@@ -66,6 +68,7 @@ export default function Diary() {
                     ))}
                 </ul>
             </div>
+            <TodayPost posts={posts} timeData={timeData} />
         </div>
     );
 }

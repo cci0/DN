@@ -14,10 +14,17 @@ export default function InputPost({ posts }) {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
+        if (!selectedMood) {
+            alert('감정을 선택해주세요.');
+            return;
+        }
+
         const newPost = {
             id: Date.now(),
+            date: new Date(),
             title: data.title,
             mood: selectedMood,
+            moodText: data.moodText,
             content: data.content,
         };
 
@@ -58,6 +65,13 @@ export default function InputPost({ posts }) {
                         onClick={() => handleMoodSelect(mood)}
                     />
                 ))}
+
+                <input
+                    type="text"
+                    id="moodText"
+                    placeholder="오늘의 기분은?"
+                    {...register('moodText', { required: '필수로 입력해주세요' })}
+                />
             </div>
             <div className="input-post-content">
                 <textarea
@@ -65,7 +79,7 @@ export default function InputPost({ posts }) {
                     cols="30"
                     rows="10"
                     placeholder="내용을 적어주세요."
-                    {...register('content')}
+                    {...register('content', { required: '필수로 입력해주세요' })}
                 ></textarea>
             </div>
 

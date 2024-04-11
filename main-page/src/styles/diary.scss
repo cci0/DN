@@ -41,10 +41,10 @@ $error-color: #d1180d;
                 }
             }
             .diary-title {
-                width: 100%;
+                width: -webkit-fill-available;
             }
             .diary-time {
-                width: 60px;
+                width: -webkit-fill-available;
                 font-size: 10px;
                 text-align: end;
             }

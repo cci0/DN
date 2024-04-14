@@ -14,24 +14,18 @@ export default function TodoListCompo() {
         }
     }, [todoList, id]);
 
-    // 마운트되었을 때 localStorage 데이터 불러오기
     useEffect(() => {
         const localTodoList = localStorage.getItem('todoList');
-        console.log(localTodoList, JSON.parse(localTodoList));
         if (localTodoList) {
             setTodoList(JSON.parse(localTodoList));
         }
+
         const localId = localStorage.getItem('id');
         if (localId) {
             setId(parseInt(localId));
         }
+        isMount.current = false;
     }, []);
-
-    // todoList나 id가 업데이트되면 localStorage에 데이터 저장하기
-    useEffect(() => {
-        localStorage.setItem('todoList', JSON.stringify(todoList));
-        localStorage.setItem('id', id);
-    }, [todoList, id]);
 
     const addTodo = useCallback(
         (todo) => (e) => {

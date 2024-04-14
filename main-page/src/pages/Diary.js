@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/diary.scss';
+import '../styles/pcDiary.scss';
 
 import TodayPost from '../components/TodayPost';
 
@@ -53,7 +54,7 @@ export default function Diary() {
 
     return (
         <div>
-            <div className="mb-diary">
+            <div className="mb-diary pc-diary">
                 <div className="create-diary-btn">
                     <Link to="/CreateDiary">
                         <img

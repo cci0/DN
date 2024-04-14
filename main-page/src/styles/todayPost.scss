@@ -1,0 +1,55 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$bg-color: #f8ede3;
+$white-color: #fdfdfd;
+$error-color: #d1180d;
+
+.mb-today-post {
+    margin: 30px 20px 60px 20px;
+
+    .today-date {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .today-list {
+        background-color: $bg-color;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        padding: 10px;
+
+        .today-title {
+            display: flex;
+            align-items: center;
+
+            .diary-mood {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .mood-icon {
+                    margin: 0 10px;
+                    width: 20px;
+                }
+
+                .mood-text {
+                    font-size: 12px;
+                }
+            }
+
+            .diary-title {
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+        }
+
+        .diary-content {
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed $icon-color;
+        }
+    }
+}

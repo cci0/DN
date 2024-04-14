@@ -37,6 +37,7 @@ export default function TodoList() {
             text: todo,
             completed: false,
         };
+
         addTodo(newTodo);
         setTodo('');
     };

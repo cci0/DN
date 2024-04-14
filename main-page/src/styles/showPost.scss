@@ -166,6 +166,7 @@ $error-color: #d1180d;
         height: 300px;
         overflow-y: auto;
         background-color: $bg-color;
+        white-space: pre-wrap;
     }
 
     .show-post-content::-webkit-scrollbar {

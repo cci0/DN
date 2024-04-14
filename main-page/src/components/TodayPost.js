@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import '../styles/todayPost.scss';
 
 export default function TodayPost({ posts, timeData }) {
     const [todayPosts, setTodayPosts] = useState([]);
@@ -21,13 +22,14 @@ export default function TodayPost({ posts, timeData }) {
     }, [posts]);
 
     return (
-        <div>
-            <div>{todayDate}</div>
-            <ul>
+        <div className="mb-today-post pc-today-post">
+            <div className="today-date">Today Diary</div>
+            <ul className="today-list">
                 {todayPosts.map((post) => (
                     <li key={post.id}>
-                        <Link className="diary-list" to={`/MyDiary/${post.id}`}>
-                            <span className="diary-mood">
+                        <div className="today-title">
+                            <div className="diary-title">{post.title}</div>
+                            <div className="diary-mood">
                                 {post.mood === 'smile' && (
                                     <img
                                         className="mood-icon"
@@ -49,9 +51,11 @@ export default function TodayPost({ posts, timeData }) {
                                         alt="frown"
                                     />
                                 )}
-                            </span>
-                            <span className="diary-title">{post.title}</span>
-                        </Link>
+                                <div className="mood-text">{post.moodText}</div>
+                            </div>
+                        </div>
+
+                        <div className="diary-content">{post.content}</div>
                     </li>
                 ))}
             </ul>

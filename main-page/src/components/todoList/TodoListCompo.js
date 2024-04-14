@@ -74,7 +74,7 @@ export default function TodoListCompo() {
     return (
         <div className="box">
             <div className="todolist-box">
-                <h1>things to do</h1>
+                <h1>Todo List</h1>
                 <TodoAddForm addTodo={addTodo} />
                 <ul>
                     {todoList.map((todoInfo) => {

@@ -48,7 +48,7 @@ function App() {
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-                <MenuBar />
+                {/* <MenuBar /> */}
             </BrowserRouter>
         </div>
     );

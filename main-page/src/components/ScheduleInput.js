@@ -36,7 +36,7 @@ export default function ScheduleInput({ date }) {
         <div>
             <input
                 type="text"
-                placeholder="일정을 입력하세요"
+                placeholder="오늘의 할 일을 적으세요"
                 value={schedule}
                 onChange={(e) => setSchedule(e.target.value)}
             />

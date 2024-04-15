@@ -33,10 +33,13 @@ function App() {
                     <Route path="/SearchPw" element={<SearchPw />} />
                     <Route path="/ChangePw" element={<ChangePw />} />
                     <Route path="/Signup" element={<SignUp />} />
+
                     {/* 캘린더 */}
                     <Route path="/Calendar" element={<Calendar />} />
+
                     {/* 투두 리스트 */}
                     <Route path="/TodoList" element={<TodoList />} />
+
                     {/* 일기장 페이지 */}
                     <Route path="/MyDiary" element={<Diary />} />
                     <Route path="/CreateDiary" element={<InputPost />} />

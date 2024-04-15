@@ -1,0 +1,56 @@
+$basic-color: #bdd2b6;
+$light-color: #e2ebdf;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+.sign-up {
+    margin: 30px 20px 0 20px;
+
+    .mb-signUp-title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: $icon-color;
+        margin: 20px auto;
+    }
+    .input-user-info {
+        display: flex;
+        flex-direction: column;
+
+        .signup-user-id {
+            margin: 15px 40px 0 40px;
+            border: 2px solid #798777;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .user-name {
+            margin: 15px 40px 0 40px;
+        }
+
+        .user-nickname {
+            margin: 15px 40px 0 40px;
+            border: 2px solid #798777;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .user-email {
+            margin: 15px 40px 20px 40px;
+        }
+    }
+
+    .signup-btn {
+        margin: 15px 40px;
+        width: -webkit-fill-available;
+        padding: 5px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        background-color: $basic-color;
+
+        span {
+            color: $white-color;
+            font-weight: bold;
+        }
+    }
+}

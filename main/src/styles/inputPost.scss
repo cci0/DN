@@ -1,0 +1,94 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+$error-color: #d1180d;
+
+.mb-input-post {
+    margin: 30px 20px;
+
+    .input-post-title {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+
+        #title {
+            width: -webkit-fill-available;
+            border: 1px solid transparent;
+            border-bottom: 1px solid $icon-color;
+            padding: 6px;
+            font-weight: bold;
+        }
+    }
+
+    .mood {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-around;
+
+        .input-mood-smile.focused {
+            filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+        }
+
+        .input-mood-meh.focused {
+            filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+        }
+
+        .input-mood-frown.focused {
+            filter: invert(53%) sepia(11%) saturate(415%) hue-rotate(66deg) brightness(94%) contrast(88%);
+        }
+
+        #moodText {
+            border: 1px solid $icon-color;
+            border-radius: 5px;
+            padding: 0px 6px;
+            font-size: 12px;
+        }
+    }
+
+    .input-post-content {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        #content {
+            width: -webkit-fill-available;
+            border: 1px solid $icon-color;
+            border-radius: 6px;
+            padding: 6px;
+            white-space: pre-wrap;
+        }
+    }
+
+    .post-input-btn {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 54px;
+
+        .post-delete-btn {
+            border: 1px solid transparent;
+            background-color: transparent;
+            padding: 4px 26px;
+        }
+
+        .post-save-btn {
+            border: 1px solid transparent;
+            background-color: transparent;
+            padding: 4px 26px;
+        }
+
+        .post-delete-btn:hover {
+            background-color: $icon-color;
+            color: $white-color;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .post-save-btn:hover {
+            background-color: $icon-color;
+            color: $white-color;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+$bg-color: #f8ede3;
+
+.menuBar {
+    background-color: #bdd2b6;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
+
+    nav {
+        .mb-bottom-menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}

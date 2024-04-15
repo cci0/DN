@@ -1,0 +1,35 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+.change-pw {
+    margin: 30px 20px 0 20px;
+
+    .mb-changePw-title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: $icon-color;
+        margin: 20px auto;
+    }
+
+    .change-btn {
+        margin: 15px 40px;
+        width: -webkit-fill-available;
+        padding: 5px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        background-color: $basic-color;
+
+        span {
+            color: $white-color;
+            font-weight: bold;
+        }
+    }
+}
+
+.back-login {
+    font-size: 10px;
+    margin: 0 60px;
+    text-align: end;
+}

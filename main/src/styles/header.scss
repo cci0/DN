@@ -1,0 +1,57 @@
+@import './reset.css';
+
+$basic-color: #bdd2b6;
+$light-color: #e2ebdf;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+// 모바일 헤더
+.header {
+    .mb-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $basic-color;
+
+        .mb-oddLogo {
+            width: 30px;
+            margin: 20px;
+        }
+
+        .mb-hamburger-menu {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            cursor: pointer;
+
+            .line {
+                width: 24px;
+                border: 1px solid $icon-color;
+                border-radius: 2px;
+            }
+
+            .line2 {
+                margin: 5px 0;
+            }
+        }
+    }
+    // 모바일 사이드 바
+    .mb-sidebar {
+        position: absolute;
+        right: 0;
+        width: 45%;
+        height: -webkit-fill-available;
+        padding: 20px;
+        background-color: rgba($light-color, 90%);
+        z-index: 99999;
+
+        li {
+            padding-bottom: 15px;
+
+            span {
+                margin: 0 10px;
+            }
+        }
+    }
+}

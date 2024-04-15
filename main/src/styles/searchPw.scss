@@ -1,0 +1,41 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+
+.search-pw {
+    margin: 30px 20px 0 20px;
+
+    .mb-Search-title {
+        font-weight: bold;
+        text-align: center;
+        margin: 20px auto;
+
+        span {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .mb-search-pw {
+            color: $icon-color;
+        }
+    }
+
+    .searchId-btn {
+        margin: 15px 40px;
+        width: -webkit-fill-available;
+        padding: 5px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        background-color: $basic-color;
+
+        span {
+            color: $white-color;
+            font-weight: bold;
+        }
+    }
+}
+
+.back-login {
+    font-size: 10px;
+    margin: 0 60px;
+    text-align: end;
+}

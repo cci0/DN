@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-calendar {
+    margin: 30px 20px;
+    width: -webkit-fill-available;
+    border: 1px solid #798777;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.react-calendar__navigation {
+    margin-top: 8px;
+}
+
+.react-calendar__month-view__days__day {
+    position: relative;
+    height: 70px;
+}
+
+.react-calendar__month-view__days__day abbr {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+abbr {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+/* year, month */
+.react-calendar__navigation__label > span {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* 요일 */
+.react-calendar__month-view__weekdays abbr {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* navigation */
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background-color: #bdd2b6;
+    border-radius: 8px;
+    color: #798777;
+}
+
+.react-calendar__navigation__label:enabled:hover span,
+.react-calendar__navigation__label:enabled:focus span {
+    color: #798777;
+} /* day tile */
+.react-calendar__tile:enabled:hover abbr,
+.react-calendar__tile:enabled:focus abbr {
+    background-color: #a2b29f;
+    border-radius: 50%;
+    color: white;
+}
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background: transparent;
+}
+.react-calendar__tile--active abbr {
+    background-color: #a2b29f;
+    border-radius: 50%;
+    color: white;
+}
+.react-calendar__tile--active {
+    background: transparent;
+}
+
+/* today */
+.react-calendar__tile--now abbr {
+    background: #bdd2b6;
+    color: white;
+    border-radius: 50%;
+}
+.react-calendar__tile--now {
+    background: transparent;
+}
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    color: white;
+}
+
+/* arrow */
+.react-calendar__navigation__arrow {
+    font-size: 12px;
+    font-weight: bold;
+    color: #798777;
+}
+
+/* 일요일 */
+abbr[title='일요일'] {
+    color: #d1180d;
+}

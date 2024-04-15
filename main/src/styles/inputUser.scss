@@ -1,0 +1,21 @@
+$icon-color: #798777;
+
+.mb-input-user {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+
+    .user-id {
+        margin: 15px 20px 0 20px;
+        border: 2px solid $icon-color;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .user-pw {
+        margin: 15px 20px;
+        border: 2px solid $icon-color;
+        border-radius: 5px;
+        padding: 5px;
+    }
+}

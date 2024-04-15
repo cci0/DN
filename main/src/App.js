@@ -26,6 +26,7 @@ function App() {
                 <Routes>
                     {/* 메인 */}
                     <Route path="/" element={<MainPage />} />
+
                     {/* 로그인 및 회원가입 관련 */}
                     <Route path="/Login" element={<Login />} />
                     <Route path="/SearchId" element={<SearchId />} />
@@ -33,10 +34,13 @@ function App() {
                     <Route path="/SearchPw" element={<SearchPw />} />
                     <Route path="/ChangePw" element={<ChangePw />} />
                     <Route path="/Signup" element={<SignUp />} />
+
                     {/* 캘린더 */}
                     <Route path="/Calendar" element={<Calendar />} />
+
                     {/* 투두 리스트 */}
                     <Route path="/TodoList" element={<TodoList />} />
+
                     {/* 일기장 페이지 */}
                     <Route path="/MyDiary" element={<Diary />} />
                     <Route path="/CreateDiary" element={<InputPost />} />
@@ -48,7 +52,7 @@ function App() {
 
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-                {/* <MenuBar /> */}
+                <MenuBar />
             </BrowserRouter>
         </div>
     );

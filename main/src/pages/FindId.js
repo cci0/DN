@@ -1,11 +1,8 @@
 import React from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 export default function FindId() {
-    console.log('useParams', useParams);
-    const { id } = useParams();
-
-    const [searchParams, setSerchParmas] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const keyword = searchParams.get('id');
 
     return (

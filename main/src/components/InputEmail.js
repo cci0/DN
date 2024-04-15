@@ -9,6 +9,9 @@ export default function InputEmail() {
     const handleDomainChange = (e) => {
         const { value } = e.target;
         if (value !== 'type') {
+            console.log('selectedDomain', selectedDomain);
+            console.log('customDomain', customDomain);
+
             setSelectedDomain(value);
             setCustomDomain('');
         } else {

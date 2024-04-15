@@ -7,16 +7,14 @@ export default function TodoList() {
 
     useEffect(() => {
         localStorage.setItem('todoList', JSON.stringify(todos));
-    }, [todos]); // todos가 변경될 때마다 실행
+    }, [todos]);
 
     useEffect(() => {
         const savedTodos = JSON.parse(localStorage.getItem('todoList')) || [];
-        if (savedTodos.length !== todos.length) {
-            setTodos(savedTodos);
-        }
-    }, []);
+        setTodos(savedTodos);
+    }, [todos.length]);
 
-    // 새로운 todo를 추가하는 함수
+    // 새로운 todo를 추가
     const addTodo = (newTodo) => {
         if (todos.length < 10) {
             setTodos((prevTodos) => [...prevTodos, newTodo]);

@@ -4,22 +4,18 @@ import '../styles/todayPost.scss';
 
 export default function TodayPost({ posts, timeData }) {
     const [todayPosts, setTodayPosts] = useState([]);
-    const [todayDate, setTodayDate] = useState('');
-
-    const filterTodayPosts = () => {
-        const today = new Date();
-        const todayDateString = `${today.getFullYear()}-${('0' + (today.getMonth() + 1)).slice(-2)}-${(
-            '0' + today.getDate()
-        ).slice(-2)}`;
-
-        setTodayDate(todayDateString);
-        const filteredPosts = posts.filter((post) => timeData(post.id) === todayDateString);
-        setTodayPosts(filteredPosts);
-    };
 
     useEffect(() => {
+        const filterTodayPosts = () => {
+            const today = new Date();
+            const todayDateString = `${today.getFullYear()}-${('0' + (today.getMonth() + 1)).slice(-2)}-${(
+                '0' + today.getDate()
+            ).slice(-2)}`;
+            const filteredPosts = posts.filter((post) => timeData(post.id) === todayDateString);
+            setTodayPosts(filteredPosts);
+        };
         filterTodayPosts();
-    }, [posts]);
+    }, [posts, timeData]);
 
     return (
         <div className="mb-today-post pc-today-post">
@@ -54,7 +50,6 @@ export default function TodayPost({ posts, timeData }) {
                                 <div className="mood-text">{post.moodText}</div>
                             </div>
                         </div>
-
                         <div className="diary-content">{post.content}</div>
                     </li>
                 ))}

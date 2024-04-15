@@ -79,7 +79,7 @@ export default function InputPost({ posts }) {
                     cols="30"
                     rows="10"
                     placeholder="내용을 적어주세요."
-                    style="white-space:pre;"
+                    style={{ whiteSpace: 'pre' }}
                     {...register('content', { required: '필수로 입력해주세요' })}
                 ></textarea>
             </div>

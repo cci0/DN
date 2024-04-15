@@ -1,10 +1,9 @@
-import React from 'react';
-import TodoListCompo from '../components/todoList/TodoListCompo';
+import TodoListComponents from '../components/TodoListComponents';
 
 export default function TodoList() {
     return (
         <div>
-            <TodoListCompo />
+            <TodoListComponents />
         </div>
     );
 }

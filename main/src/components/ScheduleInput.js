@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
-
 import '../styles/calenderInput.scss';
 
 export default function ScheduleInput({ date }) {
     const [schedule, setSchedule] = useState('');
-    const [time, setTime] = useState('');
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
+    const [selectedColor, setSelectedColor] = useState('#798777');
 
     const saveSchedule = () => {
-        if (schedule.trim() !== '') {
-            // 로컬 스토리지에서 스케줄 가져오기
+        if (schedule.trim() !== '' && startTime !== '' && endTime !== '') {
+            if (startTime >= endTime) {
+                alert('시작 시간은 끝 시간보다 이전이어야 합니다.');
+                return;
+            }
+
             let schedules = {};
             const schedulesString = localStorage.getItem('schedules');
             if (schedulesString) {
                 try {
                     schedules = JSON.parse(schedulesString);
                 } catch (error) {
-                    console.error('Error parsing schedules from localStorage:', error);
+                    console.error('로컬스토리지 오류가 발생', error);
                 }
             }
             const dateString = date.toDateString();
 
-            // 해당 날짜의 일정 배열 불러오기
             const daySchedules = Array.isArray(schedules[dateString]) ? schedules[dateString] : [];
 
-            // 새로운 일정 추가
-            daySchedules.push({ schedule, time });
+            daySchedules.push({ schedule, startTime, endTime, selectedColor });
 
-            // 업데이트된 일정을 저장
             schedules[dateString] = daySchedules;
             localStorage.setItem('schedules', JSON.stringify(schedules));
 
-            // 입력창 초기화
             setSchedule('');
-            setTime('');
+            setStartTime('');
+            setEndTime('');
+        } else {
+            alert('모두 입력해 주세요.');
         }
     };
 
@@ -45,9 +49,22 @@ export default function ScheduleInput({ date }) {
                 value={schedule}
                 onChange={(e) => setSchedule(e.target.value)}
             />
-            <input className="schedule-time" type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+            <input
+                className="schedule-time"
+                type="time"
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)}
+            />
+            <span className="wave">~</span>
+            <input className="schedule-time" type="time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
+            <input
+                className="color-picker"
+                type="color"
+                value={selectedColor}
+                onChange={(e) => setSelectedColor(e.target.value)}
+            />
             <button className="schedule-save-btn" onClick={saveSchedule}>
-                <img src={process.env.PUBLIC_URL + '/icons/plus.svg'} alt="plus" />
+                <img className="plus-img" src={process.env.PUBLIC_URL + '/icons/plus.svg'} alt="plus" />
             </button>
         </div>
     );

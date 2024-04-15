@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import moment from 'moment';
 import ScheduleInput from '../ScheduleInput';
-import WeeklySchedule from '../WeeklySchedule';
 
 // css
 import 'react-calendar/dist/Calendar.css';
@@ -26,11 +25,11 @@ export default function CalendarTodo() {
     const mark = ({ date, view }) => {
         if (view === 'month') {
             if (haveSchedule(date)) {
+                const dateString = date.toDateString();
+                const backgroundColor = schedules[dateString][0].selectedColor;
                 return (
                     <div className="have-schedule">
-                        <div>
-                            <div className="mark"></div>
-                        </div>
+                        <div className="mark" style={{ backgroundColor }}></div>
                     </div>
                 );
             }
@@ -49,36 +48,57 @@ export default function CalendarTodo() {
                                 {editingSchedule === index ? (
                                     <div className="calendar-schedule-input">
                                         <input
+                                            className="schedule-input"
                                             type="text"
                                             value={item.schedule}
                                             onChange={(e) => editChange(e.target.value, index, 'schedule')}
                                         />
                                         <input
+                                            className="schedule-time"
                                             type="time"
-                                            value={item.time}
-                                            onChange={(e) => editChange(e.target.value, index, 'time')}
+                                            value={item.startTime}
+                                            onChange={(e) => editChange(e.target.value, index, 'startTime')}
                                         />
+                                        <span className="wave">~</span>
+                                        <input
+                                            className="schedule-time"
+                                            type="time"
+                                            value={item.endTime}
+                                            onChange={(e) => editChange(e.target.value, index, 'endTime')}
+                                        />
+
                                         <button className="schedule-confirm-btn" onClick={() => confirmBtn()}>
                                             확인
                                         </button>
                                     </div>
                                 ) : (
-                                    <div className="=schedule-content-list">
+                                    <div className="schedule-content-list">
                                         <div className="calendar-schedule-content">
-                                            <span>{item.schedule}</span> <span>{item.time}</span>
+                                            <span className="schedule-title">{item.schedule}</span>
+                                            <span className="schedule-time">
+                                                {item.startTime} ~ {item.endTime}
+                                            </span>{' '}
                                         </div>
                                         <div className="schedule-btn">
                                             <button
                                                 className="schedule-edit-btn"
                                                 onClick={() => setEditingSchedule(index)}
                                             >
-                                                수정
+                                                <img
+                                                    className="edit-img"
+                                                    src={process.env.PUBLIC_URL + '/icons/pencil-line.svg'}
+                                                    alt="edit"
+                                                />
                                             </button>
                                             <button
                                                 className="schedule-delete-btn"
                                                 onClick={() => deleteSchedule(dateString, index)}
                                             >
-                                                삭제
+                                                <img
+                                                    className="delete-img"
+                                                    src={process.env.PUBLIC_URL + '/icons/trash-2.svg'}
+                                                    alt="delete"
+                                                />
                                             </button>
                                         </div>
                                     </div>
@@ -89,7 +109,7 @@ export default function CalendarTodo() {
                 </div>
             );
         } else {
-            return <div className="non-content">텅!</div>;
+            return <div className="non-content">일정이 비어있습니다!</div>;
         }
     };
 
@@ -134,7 +154,6 @@ export default function CalendarTodo() {
                 </div>
                 <ScheduleInput date={value} />
                 {showSchedule()}
-                <WeeklySchedule />
             </div>
         </div>
     );

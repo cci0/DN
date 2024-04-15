@@ -12,18 +12,39 @@ $bg-color: #f8ede3;
         border: 1px solid $icon-color;
         border-radius: 5px;
         padding-left: 6px;
-        margin-right: 15px;
     }
 
     .schedule-time {
         border: 1px solid $icon-color;
         border-radius: 5px;
         padding-left: 6px;
+        margin: 0px 15px;
+    }
+
+    .color-picker {
+        width: 26px;
+        height: 30px;
         margin-right: 15px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        border: none;
+    }
+
+    .color-picker::-webkit-color-swatch {
+        border-radius: 50%;
+        border: none;
     }
 
     .schedule-save-btn {
         background-color: transparent;
         border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+
+        .plus-img {
+            width: 18px;
+        }
     }
 }

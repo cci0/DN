@@ -8,6 +8,7 @@ $bg-color: #f8ede3;
     background-color: $bg-color;
     border-radius: 5px;
     padding: 15px;
+    height: 300px;
 
     .calender-todo {
         margin-bottom: 15px;
@@ -20,6 +21,76 @@ $bg-color: #f8ede3;
 
         .todo-date {
             font-size: 12px;
+        }
+    }
+
+    .non-content {
+        text-align: center;
+        margin: 70px auto;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .calendar-schedule-input {
+        display: flex;
+        align-items: center;
+
+        .schedule-input {
+            border: 1px solid $icon-color;
+            border-radius: 5px;
+            padding-left: 6px;
+        }
+
+        .schedule-time {
+            border: 1px solid $icon-color;
+            border-radius: 5px;
+            padding-left: 6px;
+            margin: 0px 15px;
+        }
+
+        .schedule-confirm-btn {
+            background-color: $white-color;
+            border: 1px solid $icon-color;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            color: $icon-color;
+            padding: 0px 4px;
+        }
+    }
+
+    .schedule-content-list {
+        display: flex;
+        align-items: center;
+
+        .schedule-title {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .schedule-time {
+            font-size: 12px;
+        }
+
+        .schedule-edit-btn {
+            margin: 0 15px;
+            border: 1px solid transparent;
+            background-color: transparent;
+
+            .edit-img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .schedule-delete-btn {
+            border: 1px solid transparent;
+            background-color: transparent;
+
+            .delete-img {
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 }

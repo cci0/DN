@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+
 import TodoAddForm from './TodoAddForm';
 import Todo from './Todo';
+
+import '../../styles/todoListCompo.scss';
 
 export default function TodoListCompo() {
     const [todoList, setTodoList] = useState([]);
@@ -72,26 +75,24 @@ export default function TodoListCompo() {
     );
 
     return (
-        <div className="box">
-            <div className="todolist-box">
-                <h1>Todo List</h1>
-                <TodoAddForm addTodo={addTodo} />
-                <ul>
-                    {todoList.map((todoInfo) => {
-                        return (
-                            <Todo
-                                key={todoInfo.id}
-                                id={todoInfo.id}
-                                todo={todoInfo.todo}
-                                isChecked={todoInfo.isChecked}
-                                updateTodo={updateTodo}
-                                deleteTodo={deleteTodo}
-                                toggleCheck={toggleCheck}
-                            />
-                        );
-                    })}
-                </ul>
-            </div>
+        <div className="todolist-box">
+            <div className="todo-title">Todo List</div>
+            <TodoAddForm addTodo={addTodo} />
+            <ul>
+                {todoList.map((todoInfo) => {
+                    return (
+                        <Todo
+                            key={todoInfo.id}
+                            id={todoInfo.id}
+                            todo={todoInfo.todo}
+                            isChecked={todoInfo.isChecked}
+                            updateTodo={updateTodo}
+                            deleteTodo={deleteTodo}
+                            toggleCheck={toggleCheck}
+                        />
+                    );
+                })}
+            </ul>
         </div>
     );
 }

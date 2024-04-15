@@ -1,13 +1,11 @@
 import React from 'react';
 
-import CalendarTodo from '../components/CalenderTodo';
-// import WeeklyCalendarCompo from '../components/WeeklyCalendarCompo';
+import CalendarTodo from '../components/Calendar/CalenderTodo';
 
 export default function Calendar() {
     return (
         <div className="mb-calender">
             <CalendarTodo />
-            {/* <WeeklyCalendarCompo /> */}
         </div>
     );
 }

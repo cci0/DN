@@ -4,28 +4,39 @@ import moment from 'moment';
 
 // css
 import 'react-calendar/dist/Calendar.css';
-import '../styles/calendarCompo.scss';
+import '../../styles/calendarCompo.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function CalendarCompo() {
     const [value, onChange] = useState(new Date());
     const [schedules, setSchedules] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         const savedSchedules = JSON.parse(localStorage.getItem('schedules')) || {};
         setSchedules(savedSchedules);
     }, []);
 
-    const hasSchedule = (date) => {
+    const haveSchedule = (date) => {
         return schedules[date.toDateString()] !== undefined;
+    };
+
+    const click = () => {
+        navigate('/Calendar');
     };
 
     const mark = ({ date, view }) => {
         if (view === 'month') {
-            if (hasSchedule(date)) {
-                return <div className="has-schedule"></div>;
+            if (haveSchedule(date)) {
+                const dateString = date.toDateString();
+                const backgroundColor = schedules[dateString][0].selectedColor;
+                return (
+                    <div className="have-schedule" onClick={click}>
+                        <div className="mark" style={{ backgroundColor }}></div>
+                    </div>
+                );
             }
         }
-        return null;
     };
 
     return (

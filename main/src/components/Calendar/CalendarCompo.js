@@ -4,7 +4,7 @@ import moment from 'moment';
 
 // css
 import 'react-calendar/dist/Calendar.css';
-import '../styles/calendarCompo.scss';
+import '../../styles/calendarCompo.scss';
 
 export default function CalendarCompo() {
     const [value, onChange] = useState(new Date());

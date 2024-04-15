@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 
+import { FilterWeek } from '../redux/FilterWeek';
+
 // css
 import '../styles/calendarCompo.scss';
 
@@ -8,15 +10,7 @@ export default function WeeklySchedule({ date, schedules }) {
     const [weekStart, setWeekStart] = useState(moment(date).startOf('week'));
     const [weekEnd, setWeekEnd] = useState(moment(date).endOf('week'));
 
-    const filteredSchedules = schedules
-        ? Object.keys(schedules).reduce((acc, dateString) => {
-              const scheduleDate = moment(dateString);
-              if (scheduleDate.isBetween(weekStart, weekEnd, 'day', '[]')) {
-                  acc[dateString] = schedules[dateString];
-              }
-              return acc;
-          }, {})
-        : {};
+    const filterWeek = FilterWeek(schedules, weekStart, weekEnd);
 
     const handlePrevWeek = () => {
         setWeekStart(moment(weekStart).subtract(7, 'days'));
@@ -29,12 +23,12 @@ export default function WeeklySchedule({ date, schedules }) {
     };
 
     const renderSchedule = () => {
-        return Object.keys(filteredSchedules).map((dateString) => {
+        return Object.keys(filterWeek).map((dateString) => {
             return (
                 <div key={dateString}>
-                    <h3>{moment(dateString).format('YYYY년 MM월 DD일')}</h3>
+                    <div>{moment(dateString).format('YYYY년 MM월 DD일')}</div>
                     <ul>
-                        {filteredSchedules[dateString].map((schedule, index) => (
+                        {filterWeek[dateString].map((schedule, index) => (
                             <li key={index}>{schedule.title}</li>
                         ))}
                     </ul>

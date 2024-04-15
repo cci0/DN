@@ -2,3 +2,24 @@ $basic-color: #bdd2b6;
 $icon-color: #798777;
 $white-color: #fdfdfd;
 $bg-color: #f8ede3;
+
+.mb-schedule {
+    margin: 30px 20px 100px 20px;
+    background-color: $bg-color;
+    border-radius: 5px;
+    padding: 15px;
+
+    .calender-todo {
+        margin-bottom: 15px;
+
+        .calender-todo-title {
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+
+        .todo-date {
+            font-size: 12px;
+        }
+    }
+}

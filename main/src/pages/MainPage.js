@@ -1,7 +1,7 @@
 import React from 'react';
 
-import CalendarCompo from '../components/CalendarCompo';
 import TodoList from '../components/TodoList';
+import CalendarCompo from '../components/Calendar/CalendarCompo';
 
 export default function MainPage() {
     return (

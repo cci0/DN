@@ -1,0 +1,29 @@
+$basic-color: #bdd2b6;
+$icon-color: #798777;
+$white-color: #fdfdfd;
+$bg-color: #f8ede3;
+
+.mb-schedule-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .schedule-input {
+        border: 1px solid $icon-color;
+        border-radius: 5px;
+        padding-left: 6px;
+        margin-right: 15px;
+    }
+
+    .schedule-time {
+        border: 1px solid $icon-color;
+        border-radius: 5px;
+        padding-left: 6px;
+        margin-right: 15px;
+    }
+
+    .schedule-save-btn {
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+}

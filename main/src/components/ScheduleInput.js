@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../styles/calenderInput.scss';
+
 export default function ScheduleInput({ date }) {
     const [schedule, setSchedule] = useState('');
     const [time, setTime] = useState('');
@@ -43,9 +45,9 @@ export default function ScheduleInput({ date }) {
                 value={schedule}
                 onChange={(e) => setSchedule(e.target.value)}
             />
-            <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+            <input className="schedule-time" type="time" value={time} onChange={(e) => setTime(e.target.value)} />
             <button className="schedule-save-btn" onClick={saveSchedule}>
-                저장
+                <img src={process.env.PUBLIC_URL + '/icons/plus.svg'} alt="plus" />
             </button>
         </div>
     );

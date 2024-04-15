@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import moment from 'moment';
-import ScheduleInput from './ScheduleInput';
+import ScheduleInput from '../ScheduleInput';
+import WeeklySchedule from '../WeeklySchedule';
 
 // css
 import 'react-calendar/dist/Calendar.css';
-import '../styles/calendarCompo.scss';
+import '../../styles/calendarCompo.scss';
+import '../../styles/calendarTodo.scss';
 
 export default function CalendarTodo() {
     const [value, onChange] = useState(new Date());
@@ -26,7 +28,9 @@ export default function CalendarTodo() {
             if (haveSchedule(date)) {
                 return (
                     <div className="have-schedule">
-                        <span>있다</span>
+                        <div>
+                            <div className="mark"></div>
+                        </div>
                     </div>
                 );
             }
@@ -63,15 +67,20 @@ export default function CalendarTodo() {
                                         <div className="calendar-schedule-content">
                                             <span>{item.schedule}</span> <span>{item.time}</span>
                                         </div>
-                                        <button className="schedult-edit-btn" onClick={() => setEditingSchedule(index)}>
-                                            수정
-                                        </button>
-                                        <button
-                                            className="schedule-delete-btn"
-                                            onClick={() => deleteSchedule(dateString, index)}
-                                        >
-                                            삭제
-                                        </button>
+                                        <div className="schedule-btn">
+                                            <button
+                                                className="schedule-edit-btn"
+                                                onClick={() => setEditingSchedule(index)}
+                                            >
+                                                수정
+                                            </button>
+                                            <button
+                                                className="schedule-delete-btn"
+                                                onClick={() => deleteSchedule(dateString, index)}
+                                            >
+                                                삭제
+                                            </button>
+                                        </div>
                                     </div>
                                 )}
                             </li>
@@ -118,12 +127,15 @@ export default function CalendarTodo() {
                 calendarType="gregory"
                 tileContent={mark}
             />
-            <div className="calender-todo">
-                오늘의 일정
-                <span className="todo-date">{moment(value).format('YYYY년 MM월 DD일')}</span>
+            <div className="mb-schedule">
+                <div className="calender-todo">
+                    <span className="calender-todo-title">오늘의 일정</span>
+                    <span className="todo-date">{moment(value).format('YYYY년 MM월 DD일')}</span>
+                </div>
+                <ScheduleInput date={value} />
+                {showSchedule()}
+                <WeeklySchedule />
             </div>
-            <ScheduleInput date={value} />
-            {showSchedule()}
         </div>
     );
 }

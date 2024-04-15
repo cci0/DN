@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import moment from 'moment';
-import ScheduleInput from './ScheduleInput';
 
 // css
 import 'react-calendar/dist/Calendar.css';

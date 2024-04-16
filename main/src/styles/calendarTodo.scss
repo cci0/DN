@@ -100,3 +100,54 @@ $bg-color: #f8ede3;
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .mb-schedule {
+        margin: 50px;
+        border-radius: 15px;
+        padding: 30px;
+        height: 700px;
+
+        .calender-todo {
+            margin-bottom: 30px;
+
+            .calender-todo-title {
+                font-size: 20px;
+            }
+            .todo-date {
+                font-size: 14px;
+            }
+        }
+
+        .schedule-content-list {
+            .schedule-title {
+                margin-right: 20px;
+            }
+            .schedule-edit-btn {
+                .edit-img {
+                    width: 18px;
+                }
+            }
+
+            .schedule-delete-btn {
+                .delete-img {
+                    width: 18px;
+                }
+            }
+        }
+        .calendar-schedule-input {
+            .schedule-input {
+                font-size: 14px;
+            }
+            .schedule-time {
+                font-size: 14px;
+            }
+
+            .schedule-confirm-btn {
+                padding: 0px 8px;
+                font-size: 14px;
+                width: 60px;
+            }
+        }
+    }
+}

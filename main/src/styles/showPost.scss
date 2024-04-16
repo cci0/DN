@@ -186,7 +186,7 @@ $error-color: #d1180d;
     .show-post-btn {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 54px;
+        margin-bottom: 50px;
 
         .edit-btn {
             border: 1px solid transparent;
@@ -212,6 +212,107 @@ $error-color: #d1180d;
             color: $white-color;
             font-weight: bold;
             border-radius: 5px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .mb-show-post {
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        border: 3px solid $icon-color;
+        border-radius: 15px;
+        width: 700px;
+        align-items: center;
+
+        .mb-show-post2 {
+            margin: 20px;
+            width: 500px;
+
+            .show-post-back-btn {
+                .show-back-btn {
+                    .back-icon {
+                        width: 24px;
+                    }
+                }
+            }
+
+            .show-post-title {
+                font-size: 20px;
+                padding: 8px;
+            }
+
+            .show-post-choose {
+                .show-post-mood {
+                    .post-mood {
+                        .mood-icon {
+                            width: 26px;
+                            margin-right: 20px;
+                        }
+
+                        .mood-text {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .show-post-time {
+                    .edit-time {
+                        .show-post-time-title {
+                            font-size: 12px;
+                        }
+                        .date-string {
+                            font-size: 12px;
+                        }
+                        .time-string {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            .show-post-content {
+                padding: 8px;
+            }
+        }
+    }
+
+    .mb-edit-post {
+        width: 500px;
+        margin: 20px;
+
+        .edit-post-title {
+            font-size: 16px;
+            padding: 8px !important;
+        }
+        .edit-post-mood {
+            .input-mood-frown {
+                width: 26px;
+            }
+            .input-mood-meh {
+                width: 26px;
+            }
+            .input-mood-smile {
+                width: 26px;
+            }
+
+            .input-mood-frown.focused {
+                width: 30px;
+            }
+
+            .input-mood-meh.focused {
+                width: 30px;
+            }
+
+            .input-mood-smile.focused {
+                width: 30px;
+            }
+
+            #moodText {
+                font-size: 14px !important;
+                padding: 0 8px !important;
+            }
         }
     }
 }

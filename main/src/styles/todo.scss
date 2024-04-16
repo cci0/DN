@@ -169,3 +169,95 @@ $bg-color: #f8ede3;
     background-color: $bg-color;
     border-radius: 10px;
 }
+
+@media screen and (min-width: 1200px) {
+    .todo-page {
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .todoList-nav {
+            width: 500px;
+
+            .todoList-nav-btn {
+                font-size: 20px;
+            }
+
+            .todoList-date {
+                font-size: 20px;
+            }
+        }
+
+        .mb-todoList-page {
+            width: 500px;
+            height: 700px;
+
+            .todoList-title {
+                font-size: 20px;
+            }
+
+            .input-todoList-box {
+                margin: 20px 0;
+
+                .input-todoList {
+                    font-size: 14px;
+                    padding: 0 8px;
+                }
+                .todoList-btn {
+                    width: 26px;
+                    height: 26px;
+
+                    .todoList-add {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .mb-list {
+                .todoList {
+                    margin-bottom: 10px;
+
+                    .todo-list-detail {
+                        .todoList-label {
+                            font-size: 14px;
+                            .todo-check {
+                                margin-right: 15px;
+                            }
+                        }
+
+                        .todo-btn {
+                            display: block;
+                            .todo-edit-btn {
+                                margin: 0 15px;
+                                .todo-edit {
+                                    width: 18px;
+                                }
+                            }
+
+                            .todo-delete-btn {
+                                .todo-delete {
+                                    width: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .todo-edit-input {
+                    .todo-edit {
+                        padding: 0 8px;
+
+                        font-size: 14px;
+                    }
+
+                    .todo-edit-btn {
+                        width: 50px;
+
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

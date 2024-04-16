@@ -90,3 +90,51 @@ $bg-color: #f8ede3;
     background-color: $bg-color;
     border-radius: 10px;
 }
+
+@media screen and (min-width: 1200px) {
+    .mb-todoList {
+        margin: 50px;
+        border-radius: 15px;
+        padding: 30px;
+        width: 500px;
+        height: 700px;
+
+        .todoList-title {
+            font-size: 20px;
+        }
+        .input-todoList-box {
+            margin: 30px 0;
+
+            .input-todoList {
+                font-size: 16px;
+                padding: 0px 10px;
+            }
+        }
+
+        .mb-list {
+            .todoList {
+                margin-bottom: 15px;
+
+                .todoList-label {
+                    font-size: 16px;
+
+                    .todo-check {
+                        margin-right: 15px;
+                        width: 16px;
+                        height: 24px;
+                    }
+                }
+
+                .todo-delete-btn {
+                    height: 24px;
+
+                    .todo-delete {
+                        .trash-icon {
+                            width: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

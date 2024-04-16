@@ -132,7 +132,7 @@ export default function TodoListComponents() {
     };
 
     return (
-        <div>
+        <div className="todo-page">
             <div className="todoList-nav">
                 <button className="todoList-nav-btn" onClick={goToPreviousDate}>
                     &#60;

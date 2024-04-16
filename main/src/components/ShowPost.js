@@ -136,7 +136,7 @@ export default function ShowPost() {
                         </div>
                     </div>
                 ) : (
-                    <div className="mb-show-post">
+                    <div className="mb-show-post2">
                         <div className="show-post-back-btn">
                             <button className="show-back-btn" onClick={handleCancel}>
                                 <img className="back-icon" src={process.env.PUBLIC_URL + '/icons/x.svg'} alt="back" />

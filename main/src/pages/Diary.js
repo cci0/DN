@@ -53,7 +53,7 @@ export default function Diary() {
     };
 
     return (
-        <div>
+        <div className="diary-page">
             <div className="mb-diary pc-diary">
                 <div className="create-diary-btn">
                     <Link to="/CreateDiary">
@@ -76,6 +76,15 @@ export default function Diary() {
                     </button>
                 </div>
                 <ul className="diary-listUp">
+                    <div className="pc-create-diary-btn">
+                        <Link to="/CreateDiary">
+                            <img
+                                className="create-icon"
+                                src={process.env.PUBLIC_URL + '/icons/square-pen.svg'}
+                                alt="square-pen"
+                            />
+                        </Link>
+                    </div>
                     {filteredPosts.map((post, index) => (
                         <li key={post.id}>
                             <Link className="diary-list" to={`/MyDiary/${post.id}`}>

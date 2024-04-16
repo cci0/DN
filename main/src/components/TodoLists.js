@@ -86,7 +86,11 @@ export default function TodoList() {
                         </label>
                         <button className="todo-delete-btn" type="button" onClick={() => onDelete(todoItem.id)}>
                             <span className="todo-delete">
-                                <img src={process.env.PUBLIC_URL + '/icons/trash-2.svg'} alt="Trash Icon" />
+                                <img
+                                    className="trash-icon"
+                                    src={process.env.PUBLIC_URL + '/icons/trash-2.svg'}
+                                    alt="Trash Icon"
+                                />
                             </span>
                         </button>
                     </li>

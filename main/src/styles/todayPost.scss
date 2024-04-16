@@ -54,3 +54,44 @@ $error-color: #d1180d;
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .mb-today-post {
+        margin: 50px 0px;
+
+        .today-date {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .today-list {
+            width: 400px;
+            height: 700px;
+            padding: 20px;
+
+            .today-title {
+                .diary-mood {
+                    margin-bottom: 20px;
+
+                    .mood-icon {
+                        margin: 0 15px;
+                        width: 24px;
+                    }
+
+                    .mood-text {
+                        font-size: 14px;
+                    }
+                }
+
+                .diary-title {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .diary-content {
+                font-size: 14px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+}

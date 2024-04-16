@@ -63,7 +63,7 @@ $error-color: #d1180d;
     .post-input-btn {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 54px;
+        margin-bottom: 50px;
 
         .post-delete-btn {
             border: 1px solid transparent;
@@ -89,6 +89,68 @@ $error-color: #d1180d;
             color: $white-color;
             font-weight: bold;
             border-radius: 5px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .mb-input-post {
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        border: 3px solid $icon-color;
+        border-radius: 15px;
+        width: 700px;
+        align-items: center;
+
+        .input-post-title {
+            margin: 20px;
+            width: 500px;
+
+            #title {
+                font-size: 16px;
+            }
+        }
+
+        .mood {
+            margin: 20px 0px;
+            width: 500px;
+
+            .input-mood-frown {
+                width: 26px;
+            }
+            .input-mood-meh {
+                width: 26px;
+            }
+            .input-mood-smile {
+                width: 26px;
+            }
+
+            .input-mood-frown.focused {
+                width: 30px;
+            }
+
+            .input-mood-meh.focused {
+                width: 30px;
+            }
+
+            .input-mood-smile.focused {
+                width: 30px;
+            }
+
+            #moodText {
+                font-size: 14px;
+                padding: 0 8px;
+            }
+        }
+
+        .input-post-content {
+            margin: 20px;
+            width: 500px;
+        }
+
+        .post-input-btn {
+            width: 500px;
         }
     }
 }

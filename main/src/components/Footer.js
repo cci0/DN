@@ -8,7 +8,7 @@ export default function Footer() {
             <footer>
                 <div className="moFooter">
                     <a href="/">
-                        <div className="flogo">ODD</div>
+                        <div className="flogo">Oh my! Daily Diary</div>
                     </a>
                     <div className="fCopy">&#169; 2024 ODD. All Rights Reserved.</div>
                     <div className="fTel">
@@ -19,6 +19,7 @@ export default function Footer() {
                 <div className="pcFooter">
                     <div className="fLeft">
                         <a href="/">
+                            <div className="flogo">Oh my! Daily Diary</div>
                             <div className="flogo">ODD</div>
                         </a>
                         <div className="fTel">

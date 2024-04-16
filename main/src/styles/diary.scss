@@ -73,6 +73,10 @@ $error-color: #d1180d;
         height: 300px;
         overflow-y: auto;
 
+        .pc-create-diary-btn {
+            display: none;
+        }
+
         .diary-list {
             display: flex;
             align-items: center;

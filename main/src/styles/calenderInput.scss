@@ -49,3 +49,27 @@ $bg-color: #f8ede3;
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .mb-schedule-input {
+        margin-bottom: 30px;
+
+        .schedule-input {
+            font-size: 14px;
+        }
+
+        .schedule-time {
+            font-size: 14px;
+        }
+
+        .color-picker {
+            height: 30px;
+        }
+
+        .schedule-save-btn {
+            .plus-img {
+                width: 24px;
+            }
+        }
+    }
+}

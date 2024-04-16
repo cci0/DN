@@ -5,7 +5,7 @@ $white-color: #fdfdfd;
 $error-color: #d1180d;
 
 .mb-today-post {
-    margin: 30px 20px 60px 20px;
+    margin: 30px 20px 50px 20px;
 
     .today-date {
         font-weight: bold;
@@ -17,6 +17,7 @@ $error-color: #d1180d;
         border: 1px solid transparent;
         border-radius: 15px;
         padding: 10px;
+        height: 300px;
 
         .today-title {
             display: flex;

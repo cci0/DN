@@ -4,7 +4,7 @@ $white-color: #fdfdfd;
 $bg-color: #f8ede3;
 
 .mb-schedule {
-    margin: 30px 20px 100px 20px;
+    margin: 30px 20px 50px 20px;
     background-color: $bg-color;
     border-radius: 5px;
     padding: 15px;
@@ -39,6 +39,8 @@ $bg-color: #f8ede3;
             border: 1px solid $icon-color;
             border-radius: 5px;
             padding-left: 6px;
+            width: 50%;
+            font-size: 12px;
         }
 
         .schedule-time {
@@ -46,6 +48,7 @@ $bg-color: #f8ede3;
             border-radius: 5px;
             padding-left: 6px;
             margin: 0px 15px;
+            font-size: 12px;
         }
 
         .schedule-confirm-btn {
@@ -56,6 +59,9 @@ $bg-color: #f8ede3;
             align-items: center;
             color: $icon-color;
             padding: 0px 4px;
+            font-size: 12px;
+            width: 40px;
+            justify-content: center;
         }
     }
 

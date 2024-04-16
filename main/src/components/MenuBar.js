@@ -8,6 +8,11 @@ export default function MenuBar() {
         <div className="menuBar">
             <nav>
                 <ul className="mb-bottom-menu">
+                    <li>
+                        <Link to={'/'}>
+                            <img src={process.env.PUBLIC_URL + '/icons/home.svg'} alt="home" />
+                        </Link>
+                    </li>
                     <li className="bottom-menu-list">
                         <Link to={'/Calendar'}>
                             <img src={process.env.PUBLIC_URL + '/icons/calendar-days.svg'} alt="calendar" />
@@ -18,21 +23,17 @@ export default function MenuBar() {
                             <img src={process.env.PUBLIC_URL + '/icons/list-todo.svg'} alt="todoList" />
                         </Link>
                     </li>
-                    <li>
-                        <Link to={'/'}>
-                            <img src={process.env.PUBLIC_URL + '/icons/home.svg'} alt="home" />
-                        </Link>
-                    </li>
+
                     <li>
                         <Link to={'/MyDiary'}>
                             <img src={process.env.PUBLIC_URL + '/icons/book-heart.svg'} alt="mydiary" />
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to={'/MyPage'}>
                             <img src={process.env.PUBLIC_URL + '/icons/user-round-cog.svg'} alt="mypage" />
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </div>

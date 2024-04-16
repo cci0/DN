@@ -17,6 +17,7 @@ import MenuBar from './components/MenuBar';
 import DetailMyPage from './pages/DetailMyPage';
 import InputPost from './components/InputPost';
 import ShowPost from './components/ShowPost';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -53,6 +54,7 @@ function App() {
                     <Route path="*" element={<NotFound />} />
                 </Routes>
                 <MenuBar />
+                <Footer />
             </BrowserRouter>
         </div>
     );

@@ -35,7 +35,7 @@ export default function Header() {
                 {mbSidebar && (
                     <div className="mb-sidebar">
                         <ul className="mb-sidebar-menu">
-                            <li onClick={closeMbSidebar}>
+                            {/* <li onClick={closeMbSidebar}>
                                 <Link to={'/Login'}>
                                     <img src={process.env.PUBLIC_URL + '/icons/user-round.svg'} alt="Login" />
                                     <span>로그인</span>
@@ -46,7 +46,7 @@ export default function Header() {
                                     <img src={process.env.PUBLIC_URL + '/icons/user-round-cog.svg'} alt="SignUp" />
                                     <span>회원가입</span>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li onClick={closeMbSidebar}>
                                 <Link to={'/Calendar'}>
                                     <img src={process.env.PUBLIC_URL + '/icons/calendar-days.svg'} alt="Calendar" />
@@ -68,6 +68,28 @@ export default function Header() {
                         </ul>
                     </div>
                 )}
+            </nav>
+
+            <nav className="pc-navBar">
+                {/* pc 버전 */}
+
+                <Link to={'/'}>
+                    <img className="pc-oddLogo" src={logoPng} alt="Logo" />
+                </Link>
+
+                <div className="pc-menu">
+                    <Link to={'/Calendar'}>
+                        <span className="pc-menu-list">캘린더</span>
+                    </Link>
+
+                    <Link to={'/TodoList'}>
+                        <span className="pc-menu-list">Todo List</span>
+                    </Link>
+
+                    <Link to={'/MyDiary'}>
+                        <span className="pc-menu-list">나의 일기장</span>
+                    </Link>
+                </div>
             </nav>
         </header>
     );

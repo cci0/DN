@@ -54,4 +54,39 @@ $white-color: #fdfdfd;
             }
         }
     }
+
+    .pc-navBar {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header {
+        .navBar {
+            display: none;
+        }
+
+        .pc-navBar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 50px;
+            background-color: $basic-color;
+
+            .pc-oddLogo {
+                width: 40px;
+            }
+
+            .pc-menu {
+                display: flex;
+                width: 300px;
+                justify-content: space-between;
+
+                .pc-menu-list {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
 }

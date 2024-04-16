@@ -4,11 +4,11 @@ $white-color: #fdfdfd;
 $bg-color: #f8ede3;
 
 .mb-todoList {
-    margin: 0 20px 30px 20px;
+    margin: 0 20px 50px 20px;
     background-color: $bg-color;
     border-radius: 5px;
     padding: 15px;
-    height: 200px;
+    height: 300px;
     overflow-y: auto;
 
     .todoList-title {

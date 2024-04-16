@@ -70,7 +70,9 @@ abbr {
 .react-calendar__navigation__label:enabled:hover span,
 .react-calendar__navigation__label:enabled:focus span {
     color: #798777;
-} /* day tile */
+}
+
+/* day tile */
 .react-calendar__tile:enabled:hover abbr,
 .react-calendar__tile:enabled:focus abbr {
     background-color: #a2b29f;
@@ -114,4 +116,31 @@ abbr {
 /* 일요일 */
 abbr[title='일요일'] {
     color: #d1180d;
+}
+
+@media screen and (min-width: 1200px) {
+    .react-calendar {
+        margin: 50px 0 50px 50px;
+        width: 700px;
+        height: 700px;
+        border: 1px solid #798777;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .react-calendar__navigation {
+        margin: 0px;
+    }
+    .react-calendar__navigation__arrow {
+        font-size: 16px;
+    }
+
+    .react-calendar__navigation__label > span {
+        font-size: 20px;
+    }
+
+    .react-calendar__month-view__days__day {
+        height: 100px;
+    }
 }

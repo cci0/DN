@@ -18,3 +18,9 @@ $bg-color: #f8ede3;
         }
     }
 }
+
+@media screen and (min-width: 1200px) {
+    .menuBar {
+        display: none;
+    }
+}

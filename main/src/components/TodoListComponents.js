@@ -4,11 +4,21 @@ import '../styles/todo.scss';
 
 export default function TodoListComponents() {
     const [todo, setTodo] = useState('');
-    const [todos, setTodos] = useState({});
+    const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todoList')) || {});
     const [currentDate, setCurrentDate] = useState(getFormattedDate(new Date()));
     const [selectedDate, setSelectedDate] = useState('');
     const [editedTodoId, setEditedTodoId] = useState(null);
     const [editedTodoText, setEditedTodoText] = useState('');
+
+    const addTodo = (newTodo) => {
+        initializeTodosForDate(selectedDate || new Date());
+        const currentTodos = todos[selectedDate || currentDate] || [];
+        if (currentTodos.length < 30) {
+            setTodos((prevTodos) => ({ ...prevTodos, [selectedDate || currentDate]: [...currentTodos, newTodo] }));
+        } else {
+            alert('등록된 리스트가 너무 많습니다.');
+        }
+    };
 
     useEffect(() => {
         const savedTodos = JSON.parse(localStorage.getItem('todoList')) || {};
@@ -52,16 +62,6 @@ export default function TodoListComponents() {
         }
     }
 
-    const addTodo = (newTodo) => {
-        initializeTodosForDate(selectedDate || new Date());
-        const currentTodos = todos[selectedDate || currentDate] || [];
-        if (currentTodos.length < 30) {
-            setTodos((prevTodos) => ({ ...prevTodos, [selectedDate || currentDate]: [...currentTodos, newTodo] }));
-        } else {
-            alert('등록된 리스트가 너무 많습니다.');
-        }
-    };
-
     const onChange = (event) => setTodo(event.target.value);
 
     const onSubmit = (event) => {
@@ -104,12 +104,20 @@ export default function TodoListComponents() {
     };
 
     const onDelete = (id) => {
+        // 상태를 변경하여 선택된 날짜의 todo 항목에서 특정 id를 가진 항목을 삭제합니다.
         setTodos((prevTodos) => ({
             ...prevTodos,
             [selectedDate || currentDate]: prevTodos[selectedDate || currentDate].filter(
                 (todoItem) => todoItem.id !== id
             ),
         }));
+
+        // 로컬 스토리지에 변경된 todo 리스트를 저장합니다.
+        const updatedTodos = {
+            ...todos,
+            [selectedDate || currentDate]: todos[selectedDate || currentDate].filter((todoItem) => todoItem.id !== id),
+        };
+        localStorage.setItem('todoList', JSON.stringify(updatedTodos));
     };
 
     const onEdit = (id, text) => {

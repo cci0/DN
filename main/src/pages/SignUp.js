@@ -1,102 +1,122 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import '../styles/signUp.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-    const [userData, setUserData] = useState({
-        userId: '',
-        pw: '',
-        pwCheck: '',
-        name: '',
-        nickname: '',
-        email: '',
-        domain: '',
-    });
+    const [userId, setUserId] = useState('');
+    const [pw, setPw] = useState('');
+    const [pwCheck, setPwCheck] = useState('');
+    const [name, setName] = useState('');
+    const [nickname, setNickname] = useState('');
+    const [email, setEmail] = useState('');
+    const [domain, setDomain] = useState('');
 
-    // const [selectedDomain, setSelectedDomain] = useState('');
-    // const [customDomain, setCustomDomain] = useState('');
-
-    // const { userId, pw, pwCheck, name, nickname, email, domain } = userData;
-
-    // 로컬 스토리지에 저장하기
-    useEffect(() => {
-        const storedUserDate = localStorage.getItem('userDatas');
-        if (storedUserDate) {
-            setUserData(JSON.parse(storedUserDate));
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.getItem('userDatas', JSON.stringify(userData));
-    }, [userData]);
+    const navigate = useNavigate();
 
     // 비밀번호와 비밀번호 확인이 같은지 확인하는 함수
-    const checkPw = userData.pw === userData.pwCheck;
-
-    // 비밀번호 입력 시 상태 업데이트
-    const handlePwChange = (e) => {
-        setUserData({
-            ...userData,
-            pw: e.target.value,
-        });
-    };
-
-    // 비밀번호 확인 입력 시 상태 업데이트
-    const handlePwCheckChange = (e) => {
-        setUserData({
-            ...userData,
-            pwCheck: e.target.value,
-        });
-    };
+    const checkPw = pw === pwCheck;
 
     const handleDomainChange = (e) => {
         const { value } = e.target;
         if (value !== 'type') {
-            // setSelectedDomain(value);
-            // setCustomDomain('');
+            setDomain(value);
         } else {
-            // setSelectedDomain('');
+            setDomain('');
         }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // 각 필드가 비어 있는지 확인
+        if (!userId || !pw || !pwCheck || !name || !nickname || !email || !domain) {
+            alert('모든 정보를 입력해주세요.');
+            return;
+        }
+
+        // 비밀번호와 비밀번호 확인이 일치하는지 확인
+        if (pw !== pwCheck) {
+            alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+            return;
+        }
+
+        // 제출 후에는 입력된 데이터를 초기화
+        setUserId('');
+        setPw('');
+        setPwCheck('');
+        setName('');
+        setNickname('');
+        setEmail('');
+        setDomain('');
+
+        // 로컬 스토리지에 데이터 저장
+        const userData = { userId, pw, pwCheck, name, nickname, email, domain };
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        navigate('/Login');
     };
 
     return (
         <div className="sign-up">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-signUp-title">회원가입</div>
                 <div className="input-user-info">
-                    <input className="signup-user-id" type="text" placeholder="아이디" />
+                    <input
+                        className="signup-user-id"
+                        type="text"
+                        placeholder="아이디"
+                        value={userId}
+                        onChange={(e) => setUserId(e.target.value)}
+                    />
                     <div className="mb-input-pw">
                         <input
                             type="password"
                             name="pw"
                             className="input-pw"
-                            value={userData.pw}
-                            onChange={handlePwChange}
+                            value={pw}
+                            onChange={(e) => setPw(e.target.value)}
                             placeholder="비밀번호를 입력해 주세요."
                         />
                         <input
                             type="password"
                             name="pwCheck"
                             className="input-pw"
-                            value={userData.pwCheck}
-                            onChange={handlePwCheckChange}
+                            value={pwCheck}
+                            onChange={(e) => setPwCheck(e.target.value)}
                             placeholder="비밀번호를 한번 더 입력해 주세요."
                         />
-                        {!checkPw && userData.pwCheck !== '' && (
-                            <p className="error-pw">&#42; 비밀번호가 일치하지 않습니다.</p>
-                        )}
+                        {!checkPw && pwCheck !== '' && <p className="error-pw">&#42; 비밀번호가 일치하지 않습니다.</p>}
                     </div>
 
-                    <input type="text" className="user-name" placeholder="이름" />
+                    <input
+                        type="text"
+                        className="user-name"
+                        placeholder="이름"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
 
-                    <input className="user-nickname" type="text" placeholder="닉네임" />
+                    <input
+                        className="user-nickname"
+                        type="text"
+                        placeholder="닉네임"
+                        value={nickname}
+                        onChange={(e) => setNickname(e.target.value)}
+                    />
 
                     <div className="user-email">
-                        <input type="text" className="email-front" placeholder="이메일" />
+                        <input
+                            type="text"
+                            className="email-front"
+                            placeholder="이메일"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         <span>@</span>
-                        <input type="text" className="domain-text" />
+                        <input type="text" className="domain-text" onChange={handleDomainChange} value={domain} />
 
-                        <select className="domain-list" onChange={handleDomainChange}>
+                        <select className="domain-list" onChange={handleDomainChange} value={domain}>
                             <option value="type">직접 입력</option>
                             <option value="naver.com">naver.com</option>
                             <option value="google.com">google.com</option>
